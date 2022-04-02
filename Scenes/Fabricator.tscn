@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="Fabricator" type="StaticBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -22.0
+margin_top = -53.0
+margin_right = 18.0
+margin_bottom = -13.0
+rect_scale = Vector2( 1, 1.92 )
+color = Color( 0.0352941, 0.00392157, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

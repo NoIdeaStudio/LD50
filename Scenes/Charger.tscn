@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="Charger" type="StaticBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -19.0
+margin_top = -46.0
+margin_right = 21.0
+margin_bottom = -6.0
+rect_scale = Vector2( 1, 1.69514 )
+color = Color( 0.384314, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
