@@ -48,15 +48,6 @@ public class Player : KinematicBody2D
         // }
 
         // apply velocity
-        KinematicCollision2D coll = MoveAndCollide(velocity);
-
-        // if colliding cannon
-        if (coll != null)
-        {
-            if (coll.Collider.GetType() == typeof(Cannon))
-            {
-                GD.Print("yes");
-            }
-        }
+        MoveAndCollide(velocity);
     }
 }
