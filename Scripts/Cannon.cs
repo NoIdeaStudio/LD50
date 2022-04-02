@@ -11,6 +11,10 @@ public class Cannon : StaticBody2D
 
     [Export] public bool flipped = false;
 
+    public PackedScene bullet;
+
+    private Position2D bulletSpawner;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -20,10 +24,14 @@ public class Cannon : StaticBody2D
         cannonTop = GetNode<Sprite>("CannonTop");
         menu = GetNode<InteractionMenu>("InteractionMenu");
         global = GetNode<Global>("/root/Global");
+        bulletSpawner = cannonTop.GetNode<Position2D>("BulletSpawner");
+
+        // preload bullet
+        bullet = (PackedScene)ResourceLoader.Load("res://Scenes/Bullet.tscn");
 
         if (flipped)
         {
-            cannonTop.FlipH = true;
+            this.Scale *= new Vector2(-1, 1);
         }
     }
 
@@ -39,12 +47,16 @@ public class Cannon : StaticBody2D
 
     private void lookAt(Vector2 look){
         Vector2 direction;
-        if (flipped){
+        if (!flipped){
             direction = cannonTop.GlobalPosition - look;
         }else{
             direction = look - cannonTop.GlobalPosition;
         }
         float angle = direction.Angle();
+
+        if (flipped){
+            angle = -angle;
+        }
         cannonTop.Rotation = angle;
     }
     public void _on_Cannon_body_entered(object body)
@@ -69,5 +81,26 @@ public class Cannon : StaticBody2D
 
     public void upgrade(){
         GD.Print("upgrade pressed");
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed("shoot"))
+        {
+            if (global.shootMode){
+                GD.Print("shoot");
+                Bullet bulletInstance = (Bullet)bullet.Instance();
+                bulletInstance.Rotation = cannonTop.Rotation;
+                bulletInstance.Position = bulletSpawner.GlobalPosition;
+
+                bulletInstance.direction = new Vector2(-Mathf.Cos(cannonTop.Rotation), -Mathf.Sin(cannonTop.Rotation));
+
+                if (flipped){
+                    bulletInstance.direction.x *= -1;
+                }
+
+                GetParent().AddChild(bulletInstance);
+            }
+        }
     }
 }
