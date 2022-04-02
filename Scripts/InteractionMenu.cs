@@ -22,4 +22,56 @@ public class InteractionMenu : Node2D
     {
         this.Show();
     }
+
+    public void _on_InteractButton_pressed()
+    {
+        Node2D parent = GetParent<Node2D>();
+
+        if (parent.GetType() == typeof(Fabricator))
+        {
+            Fabricator f = (Fabricator)parent;
+            f.interact();
+        }
+        else if (parent.GetType() == typeof(Charger))
+        {
+            Charger c = (Charger)parent;
+            c.interact();
+        }
+        else if (parent.GetType() == typeof(Cannon))
+        {
+            Cannon c = (Cannon)parent;
+            c.interact();
+        }
+        else if (parent.GetType() == typeof(ControlPanel))
+        {
+            ControlPanel c = (ControlPanel)parent;
+            c.interact();
+        }
+    }
+
+    public void _on_UpgradeButton_pressed()
+    {
+        Node2D parent = GetParent<Node2D>();
+
+        if (parent.GetType() == typeof(Fabricator))
+        {
+            Fabricator f = (Fabricator)parent;
+            f.upgrade();
+        }
+        else if (parent.GetType() == typeof(Charger))
+        {
+            Charger c = (Charger)parent;
+            c.upgrade();
+        }
+        else if (parent.GetType() == typeof(Cannon))
+        {
+            Cannon c = (Cannon)parent;
+            c.upgrade();
+        }
+        else if (parent.GetType() == typeof(ControlPanel))
+        {
+            ControlPanel c = (ControlPanel)parent;
+            c.upgrade();
+        }
+    }
 }

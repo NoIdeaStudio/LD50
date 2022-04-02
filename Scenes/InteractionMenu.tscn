@@ -24,3 +24,21 @@ color = Color( 0.0235294, 1, 0.360784, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="UpgradeButton" type="Button" parent="."]
+margin_left = 3.0
+margin_top = -47.0
+margin_right = 26.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractButton" type="Button" parent="."]
+margin_left = 34.0
+margin_top = -46.0
+margin_right = 55.0
+margin_bottom = -26.0
+
+[connection signal="pressed" from="UpgradeButton" to="." method="_on_UpgradeButton_pressed"]
+[connection signal="pressed" from="InteractButton" to="." method="_on_InteractButton_pressed"]

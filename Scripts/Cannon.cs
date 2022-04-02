@@ -7,6 +7,10 @@ public class Cannon : StaticBody2D
 
     private InteractionMenu menu;
 
+    Global global;
+
+    [Export] public bool flipped = false;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -15,17 +19,31 @@ public class Cannon : StaticBody2D
 
         cannonTop = GetNode<Sprite>("CannonTop");
         menu = GetNode<InteractionMenu>("InteractionMenu");
+        global = GetNode<Global>("/root/Global");
 
-        lookAt(new Vector2(500, 150));
+        if (flipped)
+        {
+            cannonTop.FlipH = true;
+        }
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        if (global.shootMode){
+            // get mouse position
+            Vector2 mousePos = GetGlobalMousePosition();
+            lookAt(mousePos);
+        }
     }
 
     private void lookAt(Vector2 look){
-        Vector2 direction = look - cannonTop.GlobalPosition;
+        Vector2 direction;
+        if (flipped){
+            direction = cannonTop.GlobalPosition - look;
+        }else{
+            direction = look - cannonTop.GlobalPosition;
+        }
         float angle = direction.Angle();
         cannonTop.Rotation = angle;
     }
@@ -43,5 +61,13 @@ public class Cannon : StaticBody2D
         {
             menu.hide();
         }
+    }
+
+    public void interact(){
+        GD.Print("yes pressed");
+    }
+
+    public void upgrade(){
+        GD.Print("upgrade pressed");
     }
 }
