@@ -8,6 +8,8 @@ public class Fabricator : Area2D
 
     Global global;
 
+    AnimatedSprite anim;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -18,6 +20,7 @@ public class Fabricator : Area2D
         menu = GetNode<InteractionMenu>("InteractionMenu");
         timer = GetNode<Timer>("Timer");
         timer.Connect("timeout", this, "_on_Timer_timeout");
+        anim = GetNode<AnimatedSprite>("AnimatedSprite");
 
         global = GetNode<Global>("/root/Global");
     }
@@ -42,12 +45,14 @@ public class Fabricator : Area2D
         {
             menu.hide();
             timer.Stop();
+            anim.Play("Idle");
         }
     }
 
     public void interact(){
         menu.hide();
         timer.Start();
+        anim.Play("Fabricate");
     }
 
     public void upgrade(){

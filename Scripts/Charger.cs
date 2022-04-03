@@ -7,6 +7,9 @@ public class Charger : Area2D
 
     Global global;
     Timer timer;
+    AnimatedSprite anim;
+
+    PackedScene EnergyPlus;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -17,8 +20,11 @@ public class Charger : Area2D
         menu = GetNode<InteractionMenu>("InteractionMenu");
         global = GetNode<Global>("/root/Global");
         timer = GetNode<Timer>("Timer");
+        anim = GetNode<AnimatedSprite>("AnimatedSprite");
 
         timer.Connect("timeout", this, "_on_Timer_timeout");
+
+        EnergyPlus = GD.Load<PackedScene>("res://Scenes/EnergyPlus.tscn");
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,12 +47,14 @@ public class Charger : Area2D
         {
             menu.hide();
             timer.Stop();
+            anim.Play("Idle");
         }
     }
 
     public void interact(){
         menu.hide();
         timer.Start();
+        anim.Play("Charging");
     }
 
     public void upgrade(){
@@ -55,5 +63,8 @@ public class Charger : Area2D
 
     public void _on_Timer_timeout(){
         global.addEnergy(1);
+        var energy = EnergyPlus.Instance() as EnergyPlus;
+        energy.Position = Position;
+        GetParent().AddChild(energy);
     }
 }

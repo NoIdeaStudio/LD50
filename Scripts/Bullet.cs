@@ -6,6 +6,7 @@ public class Bullet : KinematicBody2D
     public int speed = 500;
     public Vector2 direction;
     public int damage = 1;
+    public int piercing = 0;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -20,11 +21,13 @@ public class Bullet : KinematicBody2D
 
         if (coll != null)
         {
-            if (coll.Collider.GetType() == typeof(Enemy))
+            ((Enemy)((KinematicBody2D)coll.Collider).GetParent()).hit(damage);
+            if (piercing > 0)
             {
-                GD.Print("Hit enemy");
-                Enemy enemy = (Enemy)coll.Collider;
-                enemy.hit(damage);
+                piercing--;
+            }
+            else
+            {
                 QueueFree();
             }
         }
