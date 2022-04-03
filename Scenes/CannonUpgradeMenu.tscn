@@ -1,10 +1,17 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/turret_inv.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Bar.png" type="Texture" id=3]
 [ext_resource path="res://Assets/button_neon_3.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/CannonUpgradeMenu.cs" type="Script" id=5]
+[ext_resource path="res://Assets/Piercing_symbol.png" type="Texture" id=6]
+[ext_resource path="res://Assets/charge_time.png" type="Texture" id=7]
+[ext_resource path="res://Assets/max_charge_up_symbol.png" type="Texture" id=8]
+[ext_resource path="res://Assets/velocity_symbol.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Material_symbol.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Arrow.png" type="Texture" id=11]
+[ext_resource path="res://Assets/button_gray.png" type="Texture" id=12]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -43,9 +50,9 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 500, 250 )
-scale = Vector2( 9.02, 7.5 )
+scale = Vector2( 11.14, 7.5 )
 frames = SubResource( 1 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]
@@ -53,7 +60,7 @@ margin_left = -15.0667
 margin_top = -20.0
 margin_right = 120.933
 margin_bottom = -3.0
-rect_scale = Vector2( 0.211505, 0.211505 )
+rect_scale = Vector2( 0.18278, 0.211505 )
 theme = ExtResource( 1 )
 text = "UPGRADES"
 __meta__ = {
@@ -61,12 +68,13 @@ __meta__ = {
 }
 
 [node name="DamageUpgradeButton" type="TextureButton" parent="."]
-margin_left = 258.0
+margin_left = 201.0
 margin_top = 178.0
-margin_right = 298.0
+margin_right = 241.0
 margin_bottom = 218.0
 rect_scale = Vector2( 1.44, 1.44 )
 texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -135,13 +143,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Icon" type="Sprite" parent="DamageUpgradeButton"]
+position = Vector2( 16.6666, 15.9722 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="DamageUpgradeButton"]
+position = Vector2( 134.501, 16.4456 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="DamageUpgradeButton/Sprite2"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="DamageUpgradeButton"]
+margin_left = 149.779
+margin_top = 15.7512
+margin_right = 189.779
+margin_bottom = 31.7512
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 1 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VelocityUpgradeButton" type="TextureButton" parent="."]
-margin_left = 258.0
+margin_left = 201.0
 margin_top = 236.0
-margin_right = 298.0
+margin_right = 241.0
 margin_bottom = 276.0
 rect_scale = Vector2( 1.44, 1.44 )
 texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -210,13 +251,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Icon" type="Sprite" parent="VelocityUpgradeButton"]
+position = Vector2( 16.6666, 15.9722 )
+texture = ExtResource( 9 )
+
+[node name="Sprite2" type="Sprite" parent="VelocityUpgradeButton"]
+position = Vector2( 134.501, 16.4456 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="VelocityUpgradeButton/Sprite2"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="VelocityUpgradeButton"]
+margin_left = 149.779
+margin_top = 15.7512
+margin_right = 189.779
+margin_bottom = 31.7512
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 1 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PiercingUpgradeButton" type="TextureButton" parent="."]
-margin_left = 258.0
+margin_left = 201.0
 margin_top = 294.0
-margin_right = 298.0
+margin_right = 241.0
 margin_bottom = 334.0
 rect_scale = Vector2( 1.44, 1.44 )
 texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -285,13 +359,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Icon" type="Sprite" parent="PiercingUpgradeButton"]
+position = Vector2( 16.6666, 15.9722 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="PiercingUpgradeButton"]
+position = Vector2( 134.501, 16.4456 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="PiercingUpgradeButton/Sprite2"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="PiercingUpgradeButton"]
+margin_left = 149.779
+margin_top = 15.7512
+margin_right = 189.779
+margin_bottom = 31.7512
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 1 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ChargingUpgradeButton" type="TextureButton" parent="."]
-margin_left = 258.0
+margin_left = 201.0
 margin_top = 352.0
-margin_right = 298.0
+margin_right = 241.0
 margin_bottom = 392.0
 rect_scale = Vector2( 1.44, 1.44 )
 texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -360,13 +467,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Icon" type="Sprite" parent="ChargingUpgradeButton"]
+position = Vector2( 16.6666, 15.9722 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="ChargingUpgradeButton"]
+position = Vector2( 134.501, 16.4456 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="ChargingUpgradeButton/Sprite2"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="ChargingUpgradeButton"]
+margin_left = 149.779
+margin_top = 15.7512
+margin_right = 189.779
+margin_bottom = 31.7512
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 1 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MaxChargeUpgradeButton" type="TextureButton" parent="."]
-margin_left = 258.0
+margin_left = 201.0
 margin_top = 410.0
-margin_right = 298.0
+margin_right = 241.0
 margin_bottom = 450.0
 rect_scale = Vector2( 1.44, 1.44 )
 texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -435,11 +575,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Icon" type="Sprite" parent="MaxChargeUpgradeButton"]
+position = Vector2( 16.6666, 15.9722 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="MaxChargeUpgradeButton"]
+position = Vector2( 134.722, 16.6667 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="MaxChargeUpgradeButton/Sprite2"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="MaxChargeUpgradeButton"]
+margin_left = 149.779
+margin_top = 15.7512
+margin_right = 189.779
+margin_bottom = 31.7512
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 1 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label2" type="Label" parent="."]
-margin_left = 259.0
-margin_top = 161.0
-margin_right = 499.0
-margin_bottom = 178.0
+margin_left = 202.0
+margin_top = 163.0
+margin_right = 442.0
+margin_bottom = 180.0
 rect_scale = Vector2( 1.01151, 1.01151 )
 theme = ExtResource( 1 )
 text = "upgrade: Damage"
@@ -447,11 +619,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label7" type="Label" parent="."]
+margin_left = 615.0
+margin_top = 185.0
+margin_right = 855.0
+margin_bottom = 202.0
+rect_scale = Vector2( 1.01151, 1.01151 )
+theme = ExtResource( 1 )
+text = "Triple shot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="."]
+margin_left = 588.0
+margin_top = 320.0
+margin_right = 828.0
+margin_bottom = 337.0
+rect_scale = Vector2( 1.01151, 1.01151 )
+theme = ExtResource( 1 )
+text = "Quintuple shot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label3" type="Label" parent="."]
-margin_left = 258.0
-margin_top = 222.0
-margin_right = 530.0
-margin_bottom = 239.0
+margin_left = 201.0
+margin_top = 224.0
+margin_right = 473.0
+margin_bottom = 241.0
 rect_scale = Vector2( 1.01151, 1.01151 )
 theme = ExtResource( 1 )
 text = "upgrade: Velocity"
@@ -460,10 +656,10 @@ __meta__ = {
 }
 
 [node name="Label4" type="Label" parent="."]
-margin_left = 258.0
-margin_top = 279.0
-margin_right = 530.0
-margin_bottom = 296.0
+margin_left = 201.0
+margin_top = 281.0
+margin_right = 473.0
+margin_bottom = 298.0
 rect_scale = Vector2( 1.01151, 1.01151 )
 theme = ExtResource( 1 )
 text = "upgrade: Piercing"
@@ -472,10 +668,10 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="."]
-margin_left = 259.0
-margin_top = 337.0
-margin_right = 579.0
-margin_bottom = 354.0
+margin_left = 202.0
+margin_top = 339.0
+margin_right = 522.0
+margin_bottom = 356.0
 rect_scale = Vector2( 1.01151, 1.01151 )
 theme = ExtResource( 1 )
 text = "upgrade: Charge Time"
@@ -484,13 +680,107 @@ __meta__ = {
 }
 
 [node name="Label6" type="Label" parent="."]
-margin_left = 258.0
-margin_top = 395.0
-margin_right = 562.0
-margin_bottom = 412.0
+margin_left = 201.0
+margin_top = 397.0
+margin_right = 505.0
+margin_bottom = 414.0
 rect_scale = Vector2( 1.01151, 1.01151 )
 theme = ExtResource( 1 )
 text = "upgrade: Max Charge"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TripleUpgradeButton" type="TextureButton" parent="."]
+margin_left = 692.0
+margin_top = 218.0
+margin_right = 732.0
+margin_bottom = 258.0
+rect_scale = Vector2( 1.44, 1.44 )
+texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="Sprite" parent="TripleUpgradeButton"]
+position = Vector2( 16.6666, 15.9722 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="TripleUpgradeButton"]
+position = Vector2( 42.8344, 16.4456 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="TripleUpgradeButton/Sprite2"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="TripleUpgradeButton"]
+margin_left = 58.3333
+margin_top = 15.9722
+margin_right = 98.3333
+margin_bottom = 31.9722
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 1 )
+text = "50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FiveUpgradeButton" type="TextureButton" parent="."]
+margin_left = 693.0
+margin_top = 364.0
+margin_right = 733.0
+margin_bottom = 404.0
+rect_scale = Vector2( 1.44, 1.44 )
+disabled = true
+texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="Sprite" parent="FiveUpgradeButton"]
+position = Vector2( 16.6666, 15.9722 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="FiveUpgradeButton"]
+position = Vector2( 42.8344, 16.4456 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="FiveUpgradeButton/Sprite2"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="FiveUpgradeButton"]
+margin_left = 58.1121
+margin_top = 15.7512
+margin_right = 98.1121
+margin_bottom = 31.7512
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 1 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 715, 294 )
+rotation = -3.14159
+texture = ExtResource( 11 )

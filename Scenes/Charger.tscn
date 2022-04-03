@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/Charger.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/InteractionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Charger.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Charger_idle.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Energy_symbol.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Arrow_neon.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19, 31.5 )
@@ -142,6 +143,7 @@ shape = SubResource( 1 )
 
 [node name="InteractionMenu" parent="." instance=ExtResource( 2 )]
 visible = false
+UpgradeTexture = ExtResource( 6 )
 InteractTexture = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]

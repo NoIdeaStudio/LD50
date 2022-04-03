@@ -280,7 +280,7 @@ public class Cannon : StaticBody2D
         chargeTimer.WaitTime = 1f/chargeTime;
     }
 
-    public void UpgradeTripple(){
+    public void UpgradeTriple(){
         tripple = true;
     }
 

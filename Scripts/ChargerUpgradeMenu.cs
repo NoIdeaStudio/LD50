@@ -36,5 +36,8 @@ public class ChargerUpgradeMenu : Node2D
         GetNode<ColorRect>("Sprite/" + currentSpeed.ToString()).Visible = true;
         
         CostLabel.Text = (charger.speed * costMult).ToString();
+        if (charger.speed >= charger.maxSpeed){
+            CostLabel.Text = "/";
+        }
     }
 }

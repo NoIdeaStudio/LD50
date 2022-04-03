@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/CannonBaseGood.png" type="Texture" id=1]
 [ext_resource path="res://Assets/CannonTopGood.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Cannon.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/InteractionMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/shoot.sfxr" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Arrow_neon.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -59,6 +60,7 @@ shape = SubResource( 1 )
 [node name="InteractionMenu" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -38.3117, -0.974026 )
+UpgradeTexture = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CannonTop")

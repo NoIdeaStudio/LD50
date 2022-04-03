@@ -67,6 +67,11 @@ public class Fabricator : Area2D
     }
 
     public void _on_Timer_timeout(){
+        if (global.Iron >= global.maxIron){
+            timer.Stop();
+            anim.Play("Idle");
+            return;
+        }
         global.addIron(1);
         
         var iron = IronPlus.Instance() as EnergyPlus;

@@ -34,6 +34,7 @@ public class ControlPanel : Area2D
         {
             GetNode<InteractionMenu>("InteractionMenu").hide();
             global.shootMode = false;
+            GetParent().GetNode<ControlUpgradeMenu>("ControlUpgradeMenu").Hide();
         }
     }
 
@@ -43,6 +44,7 @@ public class ControlPanel : Area2D
     }
 
     public void upgrade(){
-        GD.Print("upgrade pressed");
+        GetNode<InteractionMenu>("InteractionMenu").hide();
+        GetParent().GetNode<ControlUpgradeMenu>("ControlUpgradeMenu").Show();
     }
 }

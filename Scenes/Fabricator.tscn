@@ -1,9 +1,11 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Fabricator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/InteractionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Fabricator.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Constructor_idle.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Arrow_neon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Material_symbol.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19, 37.5 )
@@ -109,6 +111,8 @@ shape = SubResource( 1 )
 
 [node name="InteractionMenu" parent="." instance=ExtResource( 2 )]
 visible = false
+UpgradeTexture = ExtResource( 5 )
+InteractTexture = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

@@ -4,7 +4,8 @@ using System;
 public class Player : KinematicBody2D
 {
     private Vector2 velocity = new Vector2();
-    [Export] private int speed = 2000;
+    [Export] public int speed = 1000;
+    public int maxSpeed = 4500;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -22,7 +23,7 @@ public class Player : KinematicBody2D
             {
                 velocity.x = 10;
             }else{
-                velocity.x += speed * delta;
+                velocity.x = speed * delta;
             }
             
         }
@@ -32,7 +33,7 @@ public class Player : KinematicBody2D
             {
                 velocity.x = -10;
             }else{
-                velocity.x -= speed * delta;
+                velocity.x  = -(speed * delta);
             }
         }else{
             velocity.x = 0;
@@ -51,5 +52,8 @@ public class Player : KinematicBody2D
         MoveAndCollide(velocity);
     }
 
+    public void upgradeSpeed(){
+        speed += 500;
+    }
     
 }

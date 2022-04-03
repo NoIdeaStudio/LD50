@@ -20,7 +20,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="UpgradeButton"]
-position = Vector2( 14, 16 )
+position = Vector2( 16, 14 )
 texture = ExtResource( 3 )
 
 [node name="InteractButton" type="TextureButton" parent="."]

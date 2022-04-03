@@ -16,15 +16,22 @@ public class World : Camera2D
 
     float trauma = 0.0f;
     float trauma_power = 2;
+    Area2D shield;
+    Global global;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        global = GetNode<Global>("/root/Global");
+
         random = new Random();
         enemyScene = GD.Load<PackedScene>("res://Scenes/Enemy.tscn");
 
         enemySpawnTimer = GetNode<Timer>("EnemySpawnTimer");
         enemySpawnTimer.Connect("timeout", this, "_on_EnemySpawnTimer_timeout");
+
+        shield = GetNode<Area2D>("Shield");
+        shield.Connect("body_entered", this, "_on_Shield_body_entered");
 
         paths = new Path2D[3];
         paths[0] = GetNode<Path2D>("Path1");
@@ -70,5 +77,12 @@ public class World : Camera2D
 
     public void addTrauma(float amount){
         trauma = Mathf.Min(trauma + amount, 1.0f);
+    }
+
+    public void _on_Shield_body_entered(object body){
+            GD.Print("hit");
+            addTrauma(0.3f);
+            ((body as KinematicBody2D).GetParent() as Enemy).hit(100);
+            global.health -= 1;
     }
 }

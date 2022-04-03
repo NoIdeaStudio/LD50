@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/ControlPanel.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/InteractionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Controler.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Arrow_neon.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 43.5, 19.5 )
@@ -65,6 +66,7 @@ shape = SubResource( 1 )
 
 [node name="InteractionMenu" parent="." instance=ExtResource( 2 )]
 visible = false
+UpgradeTexture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )

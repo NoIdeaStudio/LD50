@@ -5,6 +5,9 @@ public class Global : Node
 {
     public int Iron = 0;
     public int Energy = 0;
+    public int maxIron = 10;
+    public int maxEnergy = 10;
+    public int health = 10;
 
     public Overlay overlay;
     public bool shootMode = false;
@@ -42,5 +45,9 @@ public class Global : Node
         GD.Print("Removing Energy");
         Energy -= amount;
         overlay.setEnergy(Energy);
+    }
+
+    public void updateOverlay(){
+        overlay.update();
     }
 }

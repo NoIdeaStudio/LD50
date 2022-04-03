@@ -14,11 +14,16 @@ public class Overlay : Node2D
 
     public void setIron(int amount)
     {
-        GetNode<Label>("IronLabel").Text = amount.ToString();
+        GetNode<Label>("IronLabel").Text = amount.ToString() + " /" + global.maxIron.ToString();
     }
 
     public void setEnergy(int amount)
     {
-        GetNode<Label>("EnergyLabel").Text = amount.ToString();
+        GetNode<Label>("EnergyLabel").Text = amount.ToString() + " /" + global.maxEnergy.ToString();
+    }
+
+    public void update(){
+        setIron(global.Iron);
+        setEnergy(global.Energy);
     }
 }

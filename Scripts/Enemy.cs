@@ -30,7 +30,10 @@ public class Enemy : PathFollow2D
         health -= amount;
         GD.Print("took " + amount + " damage");
         if (health <= 0){
-            GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
+            AudioStreamPlayer2D audio = new AudioStreamPlayer2D();
+            audio.Stream = ResourceLoader.Load("res://Assets/enemy_death.sfxr") as AudioStream;
+            GetParent().AddChild(audio);
+            audio.Play();
             QueueFree();
         }
     }

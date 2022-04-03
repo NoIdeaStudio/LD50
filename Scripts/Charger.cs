@@ -66,6 +66,11 @@ public class Charger : Area2D
     }
 
     public void _on_Timer_timeout(){
+        if (global.Energy >= global.maxEnergy){
+            timer.Stop();
+            anim.Play("Idle");
+            return;
+        }
         global.addEnergy(1);
         var energy = EnergyPlus.Instance() as EnergyPlus;
         energy.Position = Position + new Vector2(0, -50);
