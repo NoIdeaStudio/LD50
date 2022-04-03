@@ -22,8 +22,14 @@ public class Overlay : Node2D
         GetNode<Label>("EnergyLabel").Text = amount.ToString() + " /" + global.maxEnergy.ToString();
     }
 
+    public void setHealth(int amount)
+    {
+        GetNode<Label>("HealthLabel").Text = amount.ToString();
+    }
+
     public void update(){
         setIron(global.Iron);
         setEnergy(global.Energy);
+        setHealth(global.health);
     }
 }

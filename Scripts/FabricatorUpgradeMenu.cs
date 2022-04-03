@@ -10,10 +10,13 @@ public class FabricatorUpgradeMenu : Node2D
 
     public int costMult = 5;
     public Label CostLabel;
+    Global global;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        global = GetNode<Global>("/root/Global");
+
         fabricator = GetParent().GetNode<Fabricator>("Fabricator");
         speedUpgradeButton = GetNode<TextureButton>("SpeedUpgradeButton");
         CostLabel = speedUpgradeButton.GetNode<Label>("CostLabel");
@@ -35,6 +38,7 @@ public class FabricatorUpgradeMenu : Node2D
             speedUpgradeButton.Disabled = true;
         }
         currentSpeed++;
+        global.upgrades++;
         GetNode<ColorRect>("Sprite2/" + currentSpeed.ToString()).Visible = true;
 
         CostLabel.Text = (fabricator.speed * costMult).ToString();

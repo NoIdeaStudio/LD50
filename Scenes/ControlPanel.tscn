@@ -70,5 +70,5 @@ UpgradeTexture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
-frame = 4
+frame = 2
 playing = true

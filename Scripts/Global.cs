@@ -7,14 +7,22 @@ public class Global : Node
     public int Energy = 0;
     public int maxIron = 10;
     public int maxEnergy = 10;
-    public int health = 10;
+    public int health = 100;
+
+    public int kills = 0;
+    public int upgrades = 0;
+
+    // start time
+    public DateTime startTime;
 
     public Overlay overlay;
     public bool shootMode = false;
+    public PackedScene deathScreen;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        deathScreen = ResourceLoader.Load("res://Scenes/DeathScreen.tscn") as PackedScene;
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,7 +55,43 @@ public class Global : Node
         overlay.setEnergy(Energy);
     }
 
+    public void addHealth(int amount){
+        GD.Print("Adding Health");
+        health += amount;
+        overlay.setHealth(health);
+    }
+
+    public void removeHealth(int amount){
+        GD.Print("Removing Health");
+        health -= amount;
+        overlay.setHealth(health);
+
+        if (health <= 0){
+            GD.Print("Game Over");
+            death();
+        }
+    }
+
     public void updateOverlay(){
         overlay.update();
+    }
+
+    public void death(){
+        GetTree().Paused = true;
+        GetTree().Root.AddChild(deathScreen.Instance());
+
+        Energy = 0;
+        Iron = 0;
+        health = 100;
+        overlay.setEnergy(Energy);
+        overlay.setIron(Iron);
+        overlay.setHealth(health);
+
+        maxEnergy = 10;
+        maxIron = 10;
+
+        shootMode = false;
+
+        updateOverlay();
     }
 }

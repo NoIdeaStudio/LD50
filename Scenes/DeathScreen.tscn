@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/button_gray.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/DeathScreen.cs" type="Script" id=3]
+
+[node name="DeathScreen" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 236.0
+margin_top = 49.0
+margin_right = 380.0
+margin_bottom = 66.0
+rect_scale = Vector2( 3.8515, 3.8515 )
+theme = ExtResource( 1 )
+text = "GAME OVER"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondsLabel" type="Label" parent="."]
+margin_left = 174.0
+margin_top = 183.0
+margin_right = 526.0
+margin_bottom = 200.0
+rect_scale = Vector2( 1.9315, 1.9315 )
+theme = ExtResource( 1 )
+text = "You survived   seconds"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KillsLabel" type="Label" parent="."]
+margin_left = 196.0
+margin_top = 254.0
+margin_right = 548.0
+margin_bottom = 271.0
+rect_scale = Vector2( 1.9315, 1.9315 )
+theme = ExtResource( 1 )
+text = "You killed   enemies"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradesLabel" type="Label" parent="."]
+margin_left = 13.0
+margin_top = 321.0
+margin_right = 525.0
+margin_bottom = 338.0
+rect_scale = Vector2( 1.9315, 1.9315 )
+theme = ExtResource( 1 )
+text = "You aquired   different Upgrades"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" type="TextureButton" parent="."]
+margin_left = 125.0
+margin_top = 512.0
+margin_right = 165.0
+margin_bottom = 552.0
+rect_scale = Vector2( 4.48, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="RetryButton"]
+margin_left = 4.91072
+margin_top = 7.0
+margin_right = 116.911
+margin_bottom = 24.0
+rect_scale = Vector2( 0.192227, 1.14467 )
+theme = ExtResource( 1 )
+text = "retry ?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiveUpButton" type="TextureButton" parent="."]
+margin_left = 664.0
+margin_top = 512.0
+margin_right = 704.0
+margin_bottom = 552.0
+rect_scale = Vector2( 4.48, 1 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="GiveUpButton"]
+margin_left = 5.35715
+margin_top = 6.0
+margin_right = 117.357
+margin_bottom = 23.0
+rect_scale = Vector2( 0.192227, 1.14467 )
+theme = ExtResource( 1 )
+text = "give up"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

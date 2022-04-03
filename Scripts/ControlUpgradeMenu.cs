@@ -27,6 +27,7 @@ public class ControlUpgradeMenu : Node2D
         GetParent().GetNode<Player>("Player").upgradeSpeed();
         currentSpeed++;
         upgrades++;
+        global.upgrades++;
         updatePrices();
         speedUpgradeButton.GetNode<ColorRect>("Sprite/" + currentSpeed.ToString()).Visible = true;
         if (currentSpeed >= 5){
@@ -41,6 +42,7 @@ public class ControlUpgradeMenu : Node2D
 
         currentInventory++;
         upgrades++;
+        global.upgrades++;
         updatePrices();
         InventoryUpgradeButton.GetNode<ColorRect>("Sprite/" + currentInventory.ToString()).Visible = true;
 

@@ -47,7 +47,7 @@ public class Cannon : StaticBody2D
         timer = GetNode<Timer>("Timer");
         timer.Connect("timeout", this, "_on_Timer_timeout");
         ammoLabel = GetNode<Label>("AmmoLabel");
-        ammoLabel.Text = currentAmmo.ToString();
+        ammoLabel.Text = currentAmmo.ToString() + " /" + maxAmmo.ToString();
         chargeTimer = GetNode<Timer>("ChargeTimer");
         chargeTimer.Connect("timeout", this, "_on_ChargeTimer_timeout");
         EnergyPlus = GD.Load<PackedScene>("res://Scenes/EnergyPlus.tscn");
@@ -61,6 +61,7 @@ public class Cannon : StaticBody2D
         {
             this.Scale *= new Vector2(-1, 1);
             ammoLabel.RectScale *= new Vector2(-1, 1);
+            ammoLabel.RectPosition = new Vector2(ammoLabel.RectPosition.x + 28, ammoLabel.RectPosition.y);
         }
     }
 
@@ -117,7 +118,7 @@ public class Cannon : StaticBody2D
         }
         if (currentAmmo < maxAmmo){
             currentAmmo++;
-            ammoLabel.Text = currentAmmo.ToString();
+            ammoLabel.Text = currentAmmo.ToString() + " /" + maxAmmo.ToString();
             global.removeEnergy(1);
             var energy = (EnergyPlus)EnergyPlus.Instance();
             energy.Position = bulletSpawner.GlobalPosition;
@@ -159,7 +160,7 @@ public class Cannon : StaticBody2D
     private void shoot(){
         canShoot = false;
         currentAmmo--;
-        ammoLabel.Text = currentAmmo.ToString();
+        ammoLabel.Text = currentAmmo.ToString() + " /" + maxAmmo.ToString();
         ((World)GetParent()).addTrauma(0.2f);
         GetNode<AnimationPlayer>("AnimationPlayer").Stop();
         GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();

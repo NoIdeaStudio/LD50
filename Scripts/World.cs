@@ -18,6 +18,7 @@ public class World : Camera2D
     float trauma_power = 2;
     Area2D shield;
     Global global;
+    public int wave = 1;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -38,7 +39,8 @@ public class World : Camera2D
         paths[1] = GetNode<Path2D>("Path2");
         paths[2] = GetNode<Path2D>("Path3");
 
-        CreateWave(10);
+        global.startTime = DateTime.Now;
+
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,9 +55,18 @@ public class World : Camera2D
         }
     }
 
-    public void CreateWave(int count){
+    public void startWave(){
+        int numWaves = wave;
+        int numEnemies = numWaves * 5;
+
+        for (int i = 0; i < numWaves; i++){
+            CreateWave(numEnemies, i);
+        }
+    }
+
+    public void CreateWave(int count, int path){
         // random path from paths
-        currentPath = paths[random.Next(paths.Length)];
+        currentPath = paths[path % paths.Length];
         enemySpawnTimer.Start();
         enemyCount = count;
     }
@@ -83,6 +94,6 @@ public class World : Camera2D
             GD.Print("hit");
             addTrauma(0.3f);
             ((body as KinematicBody2D).GetParent() as Enemy).hit(100);
-            global.health -= 1;
+            global.removeHealth(10);
     }
 }

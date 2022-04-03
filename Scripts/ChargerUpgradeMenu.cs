@@ -9,10 +9,13 @@ public class ChargerUpgradeMenu : Node2D
     public int currentSpeed = 1;
     public int costMult = 5;
     public Label CostLabel;
+    Global global;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        global = GetNode<Global>("/root/Global");
+        
         charger = GetParent().GetNode<Charger>("Charger");
         speedUpgradeButton = GetNode<TextureButton>("SpeedUpgradeButton");
         CostLabel = speedUpgradeButton.GetNode<Label>("CostLabel");
@@ -33,6 +36,7 @@ public class ChargerUpgradeMenu : Node2D
             speedUpgradeButton.Disabled = true;
         }
         currentSpeed++;
+        global.upgrades++;
         GetNode<ColorRect>("Sprite/" + currentSpeed.ToString()).Visible = true;
         
         CostLabel.Text = (charger.speed * costMult).ToString();

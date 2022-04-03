@@ -42,8 +42,8 @@ current = true
 script = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 53, 22 )
-scale = Vector2( 4.88688, 2.04688 )
+position = Vector2( 53, 31 )
+scale = Vector2( 4.88688, 2.8125 )
 texture = ExtResource( 8 )
 
 [node name="ControlPanel" parent="." instance=ExtResource( 6 )]

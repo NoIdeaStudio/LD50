@@ -7,13 +7,16 @@ public class Enemy : PathFollow2D
     public Path2D path;
     public Vector2[] points;
     public int pathIndex = 0;
-    public int speed = 100;
+    public int speed = 250;
     public Vector2 velocity;
     public AnimatedSprite sprite;
+    Global global;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        global = GetNode<Global>("/root/Global");
+
         velocity = Vector2.Zero;
         sprite = GetNode<AnimatedSprite>("Sprite");
         
@@ -34,6 +37,7 @@ public class Enemy : PathFollow2D
             audio.Stream = ResourceLoader.Load("res://Assets/enemy_death.sfxr") as AudioStream;
             GetParent().AddChild(audio);
             audio.Play();
+            global.kills++;
             QueueFree();
         }
     }

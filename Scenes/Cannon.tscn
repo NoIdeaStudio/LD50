@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/CannonBaseGood.png" type="Texture" id=1]
 [ext_resource path="res://Assets/CannonTopGood.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/InteractionMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/shoot.sfxr" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Arrow_neon.png" type="Texture" id=6]
+[ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -74,12 +75,18 @@ stream = ExtResource( 5 )
 wait_time = 0.25
 
 [node name="AmmoLabel" type="Label" parent="."]
-margin_left = -3.24675
-margin_top = 9.74026
-margin_right = 36.7532
-margin_bottom = 23.7403
-rect_scale = Vector2( 0.412413, 0.412413 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -14.3333
+margin_top = 10.3333
+margin_right = 89.6667
+margin_bottom = 29.3333
+rect_scale = Vector2( 0.279079, 0.279079 )
+theme = ExtResource( 7 )
 text = "10"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

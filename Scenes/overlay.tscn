@@ -37,6 +37,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HealthLabel" type="Label" parent="."]
+margin_left = 54.0
+margin_top = 82.0
+margin_right = 137.0
+margin_bottom = 98.0
+theme = SubResource( 2 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 15, 16 )
 texture = ExtResource( 4 )
@@ -61,8 +72,33 @@ margin_left = 27.0
 margin_top = -4.0
 margin_right = 67.0
 margin_bottom = 12.0
+rect_pivot_offset = Vector2( 20, 52 )
 theme = ExtResource( 5 )
 text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 34.0
+margin_top = 82.0
+margin_right = 74.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( 20, 52 )
+theme = ExtResource( 5 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="."]
+margin_top = 98.0
+margin_right = 40.0
+margin_bottom = 114.0
+rect_scale = Vector2( 1, 1.36 )
+rect_pivot_offset = Vector2( 20, 52 )
+theme = ExtResource( 5 )
+text = "HP"
 __meta__ = {
 "_edit_use_anchors_": false
 }

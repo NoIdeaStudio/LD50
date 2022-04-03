@@ -62,6 +62,7 @@ public class CannonUpgradeMenu : Node2D
         
         currentDamage++;
         upgrades ++;
+        global.upgrades++;
         updatePrices();
         GetNode<ColorRect>("DamageUpgradeButton/Sprite/" + currentDamage.ToString()).Visible = true;
         if (currentDamage >= 5){
@@ -80,6 +81,7 @@ public class CannonUpgradeMenu : Node2D
         CurrentCannon.UpgradeVelocity();
         currentVelocity++;
         upgrades ++;
+        global.upgrades++;
         updatePrices();
         GetNode<ColorRect>("VelocityUpgradeButton/Sprite/" + currentVelocity.ToString()).Visible = true;
 
@@ -100,6 +102,7 @@ public class CannonUpgradeMenu : Node2D
         CurrentCannon.UpgradePiercing();
         currentPiercing++;
         upgrades ++;
+        global.upgrades++;
         updatePrices();
         GetNode<ColorRect>("PiercingUpgradeButton/Sprite/" + currentPiercing.ToString()).Visible = true;
 
@@ -120,6 +123,7 @@ public class CannonUpgradeMenu : Node2D
         CurrentCannon.UpgradeCharging();
         currentCharging++;
         upgrades ++;
+        global.upgrades++;
         updatePrices();
         GetNode<ColorRect>("ChargingUpgradeButton/Sprite/" + currentCharging.ToString()).Visible = true;
 
@@ -141,6 +145,7 @@ public class CannonUpgradeMenu : Node2D
         
         currentMaxCharge++;
         upgrades ++;
+        global.upgrades++;
         updatePrices();
         GetNode<ColorRect>("MaxChargeUpgradeButton/Sprite/" + currentMaxCharge.ToString()).Visible = true;
         if(currentMaxCharge >= 5)
