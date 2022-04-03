@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Charger_inv_1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=2]
 [ext_resource path="res://Assets/button_neon_2.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/ChargerUpgradeMenu.cs" type="Script" id=4]
 [ext_resource path="res://Assets/Bar.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Material_symbol.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -45,7 +46,7 @@ script = ExtResource( 4 )
 position = Vector2( 500, 250 )
 scale = Vector2( 7.5, 7.5 )
 frames = SubResource( 7 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]
@@ -79,6 +80,34 @@ margin_right = 339.0
 margin_bottom = 228.0
 rect_scale = Vector2( 1.44, 1.44 )
 texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="SpeedUpgradeButton"]
+position = Vector2( 5.55554, 15.9722 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="SpeedUpgradeButton/Sprite"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 2 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="SpeedUpgradeButton"]
+margin_left = 20.8333
+margin_top = 15.2777
+margin_right = 60.8333
+margin_bottom = 31.2777
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 2 )
+text = "5"
 __meta__ = {
 "_edit_use_anchors_": false
 }

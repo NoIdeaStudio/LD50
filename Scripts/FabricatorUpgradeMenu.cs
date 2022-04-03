@@ -1,19 +1,20 @@
 using Godot;
 using System;
 
-public class ChargerUpgradeMenu : Node2D
+public class FabricatorUpgradeMenu : Node2D
 {
-    Charger charger;
+    Fabricator fabricator;
 
     TextureButton speedUpgradeButton;
     public int currentSpeed = 1;
+
     public int costMult = 5;
     public Label CostLabel;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        charger = GetParent().GetNode<Charger>("Charger");
+        fabricator = GetParent().GetNode<Fabricator>("Fabricator");
         speedUpgradeButton = GetNode<TextureButton>("SpeedUpgradeButton");
         CostLabel = speedUpgradeButton.GetNode<Label>("CostLabel");
 
@@ -28,13 +29,15 @@ public class ChargerUpgradeMenu : Node2D
 
     private void _on_SpeedUpgradeButton_pressed()
     {
-        charger.upgradeSpeed();
-        if (charger.speed >= charger.maxSpeed){
+        fabricator.upgradeSpeed();
+        
+        if (fabricator.speed >= fabricator.maxSpeed){
             speedUpgradeButton.Disabled = true;
         }
         currentSpeed++;
-        GetNode<ColorRect>("Sprite/" + currentSpeed.ToString()).Visible = true;
+        GetNode<ColorRect>("Sprite2/" + currentSpeed.ToString()).Visible = true;
+
+        CostLabel.Text = (fabricator.speed * costMult).ToString();
         
-        CostLabel.Text = (charger.speed * costMult).ToString();
     }
 }

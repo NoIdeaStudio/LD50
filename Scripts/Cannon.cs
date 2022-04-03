@@ -28,7 +28,7 @@ public class Cannon : StaticBody2D
     public bool tripple = false;
     public bool five = false;
     public int damage = 1;
-    public int bulletSpeed = 1000;
+    public int bulletSpeed = 500;
     public int piercing = 0;
     public int chargeTime = 1;
     public PackedScene ShootParticlesScene;
@@ -163,7 +163,9 @@ public class Cannon : StaticBody2D
         ((World)GetParent()).addTrauma(0.2f);
         GetNode<AnimationPlayer>("AnimationPlayer").Stop();
         GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
-
+        var energyminus = (EnergyPlus)EnergyMinus.Instance();
+        energyminus.Position = bulletSpawner.GlobalPosition;
+        GetParent().AddChild(energyminus);
         var shootParticlesInstance = (ShootParticles)ShootParticlesScene.Instance();
         shootParticlesInstance.Position = bulletSpawner.GlobalPosition;
         shootParticlesInstance.Rotation = cannonTop.GlobalRotation;
@@ -275,7 +277,7 @@ public class Cannon : StaticBody2D
 
     public void UpgradeCharging(){
         chargeTime += 1;
-        chargeTimer.WaitTime = 1/chargeTime;
+        chargeTimer.WaitTime = 1f/chargeTime;
     }
 
     public void UpgradeTripple(){

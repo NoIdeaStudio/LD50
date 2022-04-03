@@ -11,6 +11,8 @@ public class Fabricator : Area2D
     AnimatedSprite anim;
 
     PackedScene IronPlus;
+    public int speed = 1;
+    public int maxSpeed = 5;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -50,6 +52,7 @@ public class Fabricator : Area2D
             menu.hide();
             timer.Stop();
             anim.Play("Idle");
+            GetParent().GetNode<FabricatorUpgradeMenu>("FabricatorUpgradeMenu").Hide();
         }
     }
 
@@ -60,7 +63,7 @@ public class Fabricator : Area2D
     }
 
     public void upgrade(){
-        timer.Stop();
+        GetParent().GetNode<FabricatorUpgradeMenu>("FabricatorUpgradeMenu").Show();
     }
 
     public void _on_Timer_timeout(){
@@ -69,5 +72,13 @@ public class Fabricator : Area2D
         var iron = IronPlus.Instance() as EnergyPlus;
         iron.Position = Position + new Vector2(0, -50);
         GetParent().AddChild(iron);
+    }
+
+    public void upgradeSpeed(){
+        speed ++;
+        if(speed > maxSpeed){
+            speed = maxSpeed;
+        }
+        timer.WaitTime = 1f / speed;
     }
 }

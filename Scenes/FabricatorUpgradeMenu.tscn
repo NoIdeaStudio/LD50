@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Constructor_inv_2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/Bar.png" type="Texture" id=3]
+[ext_resource path="res://Assets/button_neon_1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Material_symbol.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/FabricatorUpgradeMenu.cs" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -36,12 +40,13 @@ animations = [ {
 } ]
 
 [node name="FabricatorUpgradeMenu" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 500, 250 )
 scale = Vector2( 7.5, 7.5 )
 frames = SubResource( 7 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="Sprite"]
@@ -52,6 +57,121 @@ margin_bottom = -3.01702
 rect_scale = Vector2( 0.211505, 0.211505 )
 theme = ExtResource( 2 )
 text = "UPGRADES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedUpgradeButton" type="TextureButton" parent="."]
+margin_left = 299.0
+margin_top = 188.0
+margin_right = 339.0
+margin_bottom = 228.0
+rect_scale = Vector2( 1.44, 1.44 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="SpeedUpgradeButton"]
+margin_left = -1.38889
+margin_top = -13.1944
+margin_right = 318.611
+margin_bottom = 3.80558
+rect_scale = Vector2( 0.614392, 0.614392 )
+theme = ExtResource( 2 )
+text = "Upgrade: Speed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="SpeedUpgradeButton"]
+position = Vector2( 5.55554, 15.9722 )
+scale = Vector2( 0.420213, 0.420213 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="SpeedUpgradeButton/Sprite"]
+margin_left = 19.0
+margin_top = -2.0
+margin_right = 59.0
+margin_bottom = 14.0
+theme = ExtResource( 2 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostLabel" type="Label" parent="SpeedUpgradeButton"]
+margin_left = 20.8333
+margin_top = 15.2777
+margin_right = 60.8333
+margin_bottom = 31.2777
+rect_scale = Vector2( 0.444442, 0.444442 )
+theme = ExtResource( 2 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 423, 212 )
+scale = Vector2( 5.76, 5.76 )
+texture = ExtResource( 3 )
+
+[node name="1" type="ColorRect" parent="Sprite2"]
+show_behind_parent = true
+margin_left = -10.0
+margin_top = -2.0
+margin_right = -6.0
+margin_bottom = 2.0
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="ColorRect" parent="Sprite2"]
+visible = false
+show_behind_parent = true
+margin_left = -5.90278
+margin_top = -1.90971
+margin_right = -1.90278
+margin_bottom = 2.09029
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="ColorRect" parent="Sprite2"]
+visible = false
+show_behind_parent = true
+margin_left = -1.73612
+margin_top = -1.7361
+margin_right = 2.26388
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="ColorRect" parent="Sprite2"]
+visible = false
+show_behind_parent = true
+margin_left = 2.25694
+margin_top = -1.7361
+margin_right = 6.25694
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="ColorRect" parent="Sprite2"]
+visible = false
+show_behind_parent = true
+margin_left = 6.07638
+margin_top = -1.7361
+margin_right = 10.0764
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

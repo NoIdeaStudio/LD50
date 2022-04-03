@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/turret_inv.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Bar.png" type="Texture" id=3]
-[ext_resource path="res://Assets/button_neon_2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/button_neon_3.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/CannonUpgradeMenu.cs" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=2]
@@ -45,7 +45,7 @@ script = ExtResource( 5 )
 position = Vector2( 500, 250 )
 scale = Vector2( 9.02, 7.5 )
 frames = SubResource( 1 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]
