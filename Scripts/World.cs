@@ -26,9 +26,10 @@ public class World : Camera2D
         enemySpawnTimer = GetNode<Timer>("EnemySpawnTimer");
         enemySpawnTimer.Connect("timeout", this, "_on_EnemySpawnTimer_timeout");
 
-        paths = new Path2D[2];
-        paths[0] = GetNode<Path2D>("PathSquirly");
+        paths = new Path2D[3];
+        paths[0] = GetNode<Path2D>("Path1");
         paths[1] = GetNode<Path2D>("Path2");
+        paths[2] = GetNode<Path2D>("Path3");
 
         CreateWave(10);
     }

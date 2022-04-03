@@ -9,6 +9,9 @@ public class Charger : Area2D
     Timer timer;
     AnimatedSprite anim;
 
+    public int speed = 1;
+    public int maxSpeed = 5;
+
     PackedScene EnergyPlus;
 
     // Called when the node enters the scene tree for the first time.
@@ -47,6 +50,7 @@ public class Charger : Area2D
         {
             menu.hide();
             timer.Stop();
+            GetParent().GetNode<ChargerUpgradeMenu>("ChargerUpgradeMenu").Hide();
             anim.Play("Idle");
         }
     }
@@ -58,13 +62,18 @@ public class Charger : Area2D
     }
 
     public void upgrade(){
-
+        GetParent().GetNode<ChargerUpgradeMenu>("ChargerUpgradeMenu").Show();
     }
 
     public void _on_Timer_timeout(){
         global.addEnergy(1);
         var energy = EnergyPlus.Instance() as EnergyPlus;
-        energy.Position = Position;
+        energy.Position = Position + new Vector2(0, -50);
         GetParent().AddChild(energy);
+    }
+
+    public void upgradeSpeed(){
+        speed ++;
+        timer.WaitTime = 1f / speed;
     }
 }

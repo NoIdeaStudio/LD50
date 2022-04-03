@@ -10,6 +10,8 @@ public class Fabricator : Area2D
 
     AnimatedSprite anim;
 
+    PackedScene IronPlus;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -21,6 +23,8 @@ public class Fabricator : Area2D
         timer = GetNode<Timer>("Timer");
         timer.Connect("timeout", this, "_on_Timer_timeout");
         anim = GetNode<AnimatedSprite>("AnimatedSprite");
+
+        IronPlus = GD.Load<PackedScene>("res://Scenes/IronPlus.tscn");
 
         global = GetNode<Global>("/root/Global");
     }
@@ -61,5 +65,9 @@ public class Fabricator : Area2D
 
     public void _on_Timer_timeout(){
         global.addIron(1);
+        
+        var iron = IronPlus.Instance() as EnergyPlus;
+        iron.Position = Position + new Vector2(0, -50);
+        GetParent().AddChild(iron);
     }
 }

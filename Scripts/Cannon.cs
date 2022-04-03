@@ -28,8 +28,11 @@ public class Cannon : StaticBody2D
     public bool tripple = false;
     public bool five = false;
     public int damage = 1;
-    public int piercing = 1;
+    public int bulletSpeed = 1000;
+    public int piercing = 0;
     public int chargeTime = 1;
+    public PackedScene ShootParticlesScene;
+    [Export] public String UpgradeMenu = "CannonUpgradeMenu";
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -49,6 +52,7 @@ public class Cannon : StaticBody2D
         chargeTimer.Connect("timeout", this, "_on_ChargeTimer_timeout");
         EnergyPlus = GD.Load<PackedScene>("res://Scenes/EnergyPlus.tscn");
         EnergyMinus = GD.Load<PackedScene>("res://Scenes/EnergyMinus.tscn");
+        ShootParticlesScene = GD.Load<PackedScene>("res://Scenes/ShootParticles.tscn");
 
         // preload bullet
         bullet = (PackedScene)ResourceLoader.Load("res://Scenes/Bullet.tscn");
@@ -98,6 +102,7 @@ public class Cannon : StaticBody2D
         {
             menu.hide();
             chargeTimer.Stop();
+            GetParent().GetNode<CannonUpgradeMenu>(UpgradeMenu).Hide();
         }
     }
 
@@ -114,17 +119,15 @@ public class Cannon : StaticBody2D
             currentAmmo++;
             ammoLabel.Text = currentAmmo.ToString();
             global.removeEnergy(1);
-            var energyPlus = (EnergyPlus)EnergyPlus.Instance();
-            energyPlus.Position = Position;
-            AddChild(energyPlus);
-            var energyMinus = (EnergyPlus)EnergyMinus.Instance();
-            energyMinus.Position = Position + new Vector2(10, 0);
-            AddChild(energyMinus);
+            var energy = (EnergyPlus)EnergyPlus.Instance();
+            energy.Position = bulletSpawner.GlobalPosition;
+            GetParent().AddChild(energy);
         }
     }
 
     public void upgrade(){
-        GD.Print("upgrade pressed");
+        GetParent().GetNode<CannonUpgradeMenu>(UpgradeMenu).CurrentCannon = this;
+        GetParent().GetNode<CannonUpgradeMenu>(UpgradeMenu).Show();
     }
 
     public override void _Input(InputEvent @event)
@@ -160,6 +163,13 @@ public class Cannon : StaticBody2D
         ((World)GetParent()).addTrauma(0.2f);
         GetNode<AnimationPlayer>("AnimationPlayer").Stop();
         GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
+
+        var shootParticlesInstance = (ShootParticles)ShootParticlesScene.Instance();
+        shootParticlesInstance.Position = bulletSpawner.GlobalPosition;
+        shootParticlesInstance.Rotation = cannonTop.GlobalRotation;
+        shootParticlesInstance.Scale *= new Vector2(-1, 1);
+        GetParent().AddChild(shootParticlesInstance);
+
         GD.Print("shoot");
         Bullet bulletInstance = (Bullet)bullet.Instance();
         bulletInstance.Rotation = cannonTop.Rotation;
@@ -173,6 +183,7 @@ public class Cannon : StaticBody2D
 
         bulletInstance.damage = damage;
         bulletInstance.piercing = piercing;
+        bulletInstance.speed = bulletSpeed;
         GetParent().AddChild(bulletInstance);
 
         if (tripple){
@@ -198,16 +209,82 @@ public class Cannon : StaticBody2D
 
             bulletInstance2.damage = damage;
             bulletInstance2.piercing = piercing;
+            bulletInstance2.speed = bulletSpeed;
 
             bulletInstance3.damage = damage;
             bulletInstance3.piercing = piercing;
+            bulletInstance3.speed = bulletSpeed;
 
             GetParent().AddChild(bulletInstance2);
             GetParent().AddChild(bulletInstance3);
+        }
+
+        if (five){
+            Bullet bulletInstance4 = (Bullet)bullet.Instance();
+            bulletInstance4.Rotation = cannonTop.Rotation;
+            bulletInstance4.Position = bulletSpawner.GlobalPosition;
+
+            bulletInstance4.direction = new Vector2(-Mathf.Cos(cannonTop.Rotation - 50), -Mathf.Sin(cannonTop.Rotation - 50));
+
+            if (flipped){
+                bulletInstance4.direction.x *= -1;
+            }
+
+            Bullet bulletInstance5 = (Bullet)bullet.Instance();
+            bulletInstance5.Rotation = cannonTop.Rotation;
+            bulletInstance5.Position = bulletSpawner.GlobalPosition;
+
+            bulletInstance5.direction = new Vector2(-Mathf.Cos(cannonTop.Rotation + 50), -Mathf.Sin(cannonTop.Rotation + 50));
+
+            if (flipped){
+                bulletInstance5.direction.x *= -1;
+            }
+
+            bulletInstance4.damage = damage;
+            bulletInstance4.piercing = piercing;
+            bulletInstance4.speed = bulletSpeed;
+
+            bulletInstance5.damage = damage;
+            bulletInstance5.piercing = piercing;
+            bulletInstance5.speed = bulletSpeed;
+
+            GetParent().AddChild(bulletInstance4);
+            GetParent().AddChild(bulletInstance5);
         }
 
         
 
         GetNode<AnimationPlayer>("AnimationPlayer").Play("Recoil");
     }
+
+    public void UpgradeDamage(){
+        damage += 1;
+    }
+
+    public void UpgradePiercing(){
+        piercing += 1;
+    }
+
+    public void UpgradeVelocity(){
+        bulletSpeed += 250;
+    }
+
+    public void UpgradeMaxCharge(){
+        maxAmmo += 5;
+    }
+
+    public void UpgradeCharging(){
+        chargeTime += 1;
+        chargeTimer.WaitTime = 1/chargeTime;
+    }
+
+    public void UpgradeTripple(){
+        tripple = true;
+    }
+
+    public void UpgradeFive(){
+        five = true;
+    }
+
+
 }

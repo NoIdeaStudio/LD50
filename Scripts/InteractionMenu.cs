@@ -3,14 +3,14 @@ using System;
 
 public class InteractionMenu : Node2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    [Export] public StreamTexture UpgradeTexture;
+    [Export] public StreamTexture InteractTexture;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+        GetNode<Sprite>("UpgradeButton/Sprite").Texture = UpgradeTexture;
+        GetNode<Sprite>("InteractButton/Sprite").Texture = InteractTexture;
     }
 
     public void hide()

@@ -1,0 +1,496 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/turret_inv.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Bar.png" type="Texture" id=3]
+[ext_resource path="res://Assets/button_neon_2.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/CannonUpgradeMenu.cs" type="Script" id=5]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[node name="CannonUpgradeMenu" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 500, 250 )
+scale = Vector2( 9.02, 7.5 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="Label" type="Label" parent="AnimatedSprite"]
+margin_left = -15.0667
+margin_top = -20.0
+margin_right = 120.933
+margin_bottom = -3.0
+rect_scale = Vector2( 0.211505, 0.211505 )
+theme = ExtResource( 1 )
+text = "UPGRADES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DamageUpgradeButton" type="TextureButton" parent="."]
+margin_left = 258.0
+margin_top = 178.0
+margin_right = 298.0
+margin_bottom = 218.0
+rect_scale = Vector2( 1.44, 1.44 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="DamageUpgradeButton"]
+position = Vector2( 86.111, 16.6666 )
+scale = Vector2( 3.99999, 3.99999 )
+texture = ExtResource( 3 )
+
+[node name="1" type="ColorRect" parent="DamageUpgradeButton/Sprite"]
+show_behind_parent = true
+margin_left = -10.0
+margin_top = -2.0
+margin_right = -6.0
+margin_bottom = 2.0
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="ColorRect" parent="DamageUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -5.90278
+margin_top = -1.90971
+margin_right = -1.90278
+margin_bottom = 2.09029
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="ColorRect" parent="DamageUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -1.73612
+margin_top = -1.7361
+margin_right = 2.26388
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="ColorRect" parent="DamageUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 2.25694
+margin_top = -1.7361
+margin_right = 6.25694
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="ColorRect" parent="DamageUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 6.07638
+margin_top = -1.7361
+margin_right = 10.0764
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VelocityUpgradeButton" type="TextureButton" parent="."]
+margin_left = 258.0
+margin_top = 236.0
+margin_right = 298.0
+margin_bottom = 276.0
+rect_scale = Vector2( 1.44, 1.44 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="VelocityUpgradeButton"]
+position = Vector2( 86.111, 16.6666 )
+scale = Vector2( 3.99999, 3.99999 )
+texture = ExtResource( 3 )
+
+[node name="1" type="ColorRect" parent="VelocityUpgradeButton/Sprite"]
+show_behind_parent = true
+margin_left = -10.0
+margin_top = -2.0
+margin_right = -6.0
+margin_bottom = 2.0
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="ColorRect" parent="VelocityUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -5.90278
+margin_top = -1.90971
+margin_right = -1.90278
+margin_bottom = 2.09029
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="ColorRect" parent="VelocityUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -1.73612
+margin_top = -1.7361
+margin_right = 2.26388
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="ColorRect" parent="VelocityUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 2.25694
+margin_top = -1.7361
+margin_right = 6.25694
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="ColorRect" parent="VelocityUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 6.07638
+margin_top = -1.7361
+margin_right = 10.0764
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PiercingUpgradeButton" type="TextureButton" parent="."]
+margin_left = 258.0
+margin_top = 294.0
+margin_right = 298.0
+margin_bottom = 334.0
+rect_scale = Vector2( 1.44, 1.44 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PiercingUpgradeButton"]
+position = Vector2( 86.111, 16.6666 )
+scale = Vector2( 3.99999, 3.99999 )
+texture = ExtResource( 3 )
+
+[node name="1" type="ColorRect" parent="PiercingUpgradeButton/Sprite"]
+show_behind_parent = true
+margin_left = -10.0
+margin_top = -2.0
+margin_right = -6.0
+margin_bottom = 2.0
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="ColorRect" parent="PiercingUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -5.90278
+margin_top = -1.90971
+margin_right = -1.90278
+margin_bottom = 2.09029
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="ColorRect" parent="PiercingUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -1.73612
+margin_top = -1.7361
+margin_right = 2.26388
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="ColorRect" parent="PiercingUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 2.25694
+margin_top = -1.7361
+margin_right = 6.25694
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="ColorRect" parent="PiercingUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 6.07638
+margin_top = -1.7361
+margin_right = 10.0764
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChargingUpgradeButton" type="TextureButton" parent="."]
+margin_left = 258.0
+margin_top = 352.0
+margin_right = 298.0
+margin_bottom = 392.0
+rect_scale = Vector2( 1.44, 1.44 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ChargingUpgradeButton"]
+position = Vector2( 86.111, 16.6666 )
+scale = Vector2( 3.99999, 3.99999 )
+texture = ExtResource( 3 )
+
+[node name="1" type="ColorRect" parent="ChargingUpgradeButton/Sprite"]
+show_behind_parent = true
+margin_left = -10.0
+margin_top = -2.0
+margin_right = -6.0
+margin_bottom = 2.0
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="ColorRect" parent="ChargingUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -5.90278
+margin_top = -1.90971
+margin_right = -1.90278
+margin_bottom = 2.09029
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="ColorRect" parent="ChargingUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -1.73612
+margin_top = -1.7361
+margin_right = 2.26388
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="ColorRect" parent="ChargingUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 2.25694
+margin_top = -1.7361
+margin_right = 6.25694
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="ColorRect" parent="ChargingUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 6.07638
+margin_top = -1.7361
+margin_right = 10.0764
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxChargeUpgradeButton" type="TextureButton" parent="."]
+margin_left = 258.0
+margin_top = 410.0
+margin_right = 298.0
+margin_bottom = 450.0
+rect_scale = Vector2( 1.44, 1.44 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="MaxChargeUpgradeButton"]
+position = Vector2( 86.111, 16.6666 )
+scale = Vector2( 3.99999, 3.99999 )
+texture = ExtResource( 3 )
+
+[node name="1" type="ColorRect" parent="MaxChargeUpgradeButton/Sprite"]
+show_behind_parent = true
+margin_left = -10.0
+margin_top = -2.0
+margin_right = -6.0
+margin_bottom = 2.0
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="ColorRect" parent="MaxChargeUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -5.90278
+margin_top = -1.90971
+margin_right = -1.90278
+margin_bottom = 2.09029
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="ColorRect" parent="MaxChargeUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = -1.73612
+margin_top = -1.7361
+margin_right = 2.26388
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="ColorRect" parent="MaxChargeUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 2.25694
+margin_top = -1.7361
+margin_right = 6.25694
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="ColorRect" parent="MaxChargeUpgradeButton/Sprite"]
+visible = false
+show_behind_parent = true
+margin_left = 6.07638
+margin_top = -1.7361
+margin_right = 10.0764
+margin_bottom = 2.2639
+color = Color( 0.403922, 0.47451, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 259.0
+margin_top = 161.0
+margin_right = 499.0
+margin_bottom = 178.0
+rect_scale = Vector2( 1.01151, 1.01151 )
+theme = ExtResource( 1 )
+text = "upgrade: Damage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 258.0
+margin_top = 222.0
+margin_right = 530.0
+margin_bottom = 239.0
+rect_scale = Vector2( 1.01151, 1.01151 )
+theme = ExtResource( 1 )
+text = "upgrade: Velocity"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 258.0
+margin_top = 279.0
+margin_right = 530.0
+margin_bottom = 296.0
+rect_scale = Vector2( 1.01151, 1.01151 )
+theme = ExtResource( 1 )
+text = "upgrade: Piercing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 259.0
+margin_top = 337.0
+margin_right = 579.0
+margin_bottom = 354.0
+rect_scale = Vector2( 1.01151, 1.01151 )
+theme = ExtResource( 1 )
+text = "upgrade: Charge Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 258.0
+margin_top = 395.0
+margin_right = 562.0
+margin_bottom = 412.0
+rect_scale = Vector2( 1.01151, 1.01151 )
+theme = ExtResource( 1 )
+text = "upgrade: Max Charge"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -89,10 +89,10 @@ shape = SubResource( 1 )
 remote_path = NodePath("../EnemyArea")
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 3, 0 )
+position = Vector2( 6, 1 )
 rotation = -1.57079
-scale = Vector2( 1.4, 1.4 )
+scale = Vector2( 2.12, 2.12 )
 frames = SubResource( 8 )
 animation = "var2"
-frame = 3
+frame = 2
 playing = true
