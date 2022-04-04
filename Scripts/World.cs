@@ -17,7 +17,7 @@ public class World : Camera2D
     float trauma_power = 2;
     Area2D shield;
     Global global;
-    public int wave = 1;
+    public int wave = 0;
     public int enemiesLeft = 0;
     public WaveSpawner[] paths = new WaveSpawner[3];
 
@@ -25,6 +25,7 @@ public class World : Camera2D
     public override void _Ready()
     {
         global = GetNode<Global>("/root/Global");
+        global.Setup();
 
         random = new Random();
         enemyScene = GD.Load<PackedScene>("res://Scenes/Enemy.tscn");
@@ -44,7 +45,6 @@ public class World : Camera2D
 
         enemySpawnTimer.Start();
 
-        startWave();
 
     }
 

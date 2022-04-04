@@ -26,7 +26,7 @@ public class Global : Node
     public int countdown = 30;
 
     // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    public void Setup()
     {
         deathScreen = ResourceLoader.Load("res://Scenes/DeathScreen.tscn") as PackedScene;
         newWaveScreen = ResourceLoader.Load("res://Scenes/NewWaveScreen.tscn") as PackedScene;
