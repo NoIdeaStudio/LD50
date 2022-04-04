@@ -57,7 +57,7 @@ public class CannonUpgradeMenu : Node2D
 
     private void _on_DamageUpgradeButton_pressed()
     {
-        if (global.Iron >= upgrades * costMult){
+        if (global.Iron >= upgrades * costMult && !global.tutorial){
             global.removeIron(upgrades*costMult);
         }else{
             cantAffordSound.Play();
@@ -79,7 +79,7 @@ public class CannonUpgradeMenu : Node2D
 
     private void _on_VelocityUpgradeButton_pressed()
     {
-        if (global.Iron >= upgrades * costMult){
+        if (global.Iron >= upgrades * costMult && !global.tutorial){
             global.removeIron(upgrades*costMult);
         }else{
             cantAffordSound.Play();
@@ -102,7 +102,7 @@ public class CannonUpgradeMenu : Node2D
 
     private void _on_PiercingUpgradeButton_pressed()
     {
-        if (global.Iron >= upgrades * costMult){
+        if (global.Iron >= upgrades * costMult && !global.tutorial){
             global.removeIron(upgrades*costMult);
         }else{
             cantAffordSound.Play();
@@ -125,7 +125,7 @@ public class CannonUpgradeMenu : Node2D
 
     private void _on_ChargingUpgradeButton_pressed()
     {
-        if (global.Iron >= upgrades * costMult){
+        if (global.Iron >= upgrades * costMult && !global.tutorial){
             global.removeIron(upgrades*costMult);
         }else{
             cantAffordSound.Play();
@@ -148,7 +148,7 @@ public class CannonUpgradeMenu : Node2D
 
     private void _on_MaxChargeUpgradeButton_pressed()
     {
-        if (global.Iron >= upgrades * costMult){
+        if (global.Iron >= upgrades * costMult && !global.tutorial){
             global.removeIron(upgrades*costMult);
         }else{
             cantAffordSound.Play();
@@ -178,7 +178,7 @@ public class CannonUpgradeMenu : Node2D
 
     private void _on_TripleUpgradeButton_pressed()
     {
-        if (global.Iron >= 25){
+        if (global.Iron >= 25 && !global.tutorial){
             global.removeIron(25);
         }else{
             cantAffordSound.Play();
@@ -193,7 +193,7 @@ public class CannonUpgradeMenu : Node2D
 
     private void _on_FiveUpgradeButton_pressed()
     {
-        if (global.Iron >= 50){
+        if (global.Iron >= 50 && !global.tutorial){
             global.removeIron(50);
         }else{
             cantAffordSound.Play();

@@ -1,15 +1,16 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/turret_inv.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Bar.png" type="Texture" id=3]
 [ext_resource path="res://Assets/button_neon_3.png" type="Texture" id=4]
-[ext_resource path="res://Assets/max_charge_up_symbol.png" type="Texture" id=5]
+[ext_resource path="res://Assets/speed_up_symbol_1.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/ControlUpgradeMenu.cs" type="Script" id=6]
 [ext_resource path="res://Assets/Material_symbol.png" type="Texture" id=7]
 [ext_resource path="res://Assets/button_gray.png" type="Texture" id=8]
 [ext_resource path="res://Assets/CantAfford.sfxr" type="AudioStream" id=9]
 [ext_resource path="res://Assets/upgrade.sfxr" type="AudioStream" id=10]
+[ext_resource path="res://Assets/inventory_up_symbol.png" type="Texture" id=11]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -45,13 +46,15 @@ animations = [ {
 
 [node name="ControlUpgradeMenu" type="Node2D"]
 position = Vector2( 0, -1 )
+z_index = 5
+z_as_relative = false
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 500, 250 )
 scale = Vector2( 9.02, 7.5 )
 frames = SubResource( 8 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]
@@ -252,7 +255,7 @@ __meta__ = {
 
 [node name="Icon" type="Sprite" parent="InventoryUpgradeButton"]
 position = Vector2( 16.6666, 15.9722 )
-texture = ExtResource( 5 )
+texture = ExtResource( 11 )
 
 [node name="Sprite2" type="Sprite" parent="InventoryUpgradeButton"]
 position = Vector2( 134.501, 16.4456 )

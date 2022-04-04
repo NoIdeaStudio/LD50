@@ -21,9 +21,11 @@ public class Global : Node
     public PackedScene newWaveScreen;
     public int enemiesLeft = 0;
     public int wave = 1;
+    public int enemyHealth = 1;
 
     Timer waveTimer;
     public int countdown = 30;
+    public bool tutorial = true;
 
     // Called when the node enters the scene tree for the first time.
     public void Setup()
@@ -109,8 +111,10 @@ public class Global : Node
     }
 
     public void waveCountdown(){
-        countdown--;
-        overlay.setWaveTime(countdown);
+        if (!tutorial){
+            countdown--;
+            overlay.setWaveTime(countdown);
+        }
     }
 
     public void setWave(){

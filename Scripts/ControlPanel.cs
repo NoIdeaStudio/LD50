@@ -25,6 +25,10 @@ public class ControlPanel : Area2D
         if (body.GetType() == typeof(Player))
         {
             GetNode<InteractionMenu>("InteractionMenu").show();
+            if (global.tutorial && ((World)GetParent()).TutorialControlPanel.Visible == true){
+                ((World)GetParent()).TutorialControlPanel.Hide();
+                global.tutorial = false;
+            }
         }
     }
 

@@ -4,7 +4,7 @@ using System;
 public class World : Camera2D
 {
     PackedScene enemyScene;
-    Timer enemySpawnTimer;
+    public Timer enemySpawnTimer;
     Path2D currentPath;
     int enemyCount = 0;
     Random random;
@@ -20,6 +20,12 @@ public class World : Camera2D
     public int wave = 0;
     public int enemiesLeft = 0;
     public WaveSpawner[] paths = new WaveSpawner[3];
+    public bool tutorial = true;
+    public Sprite TutorialFabricator;
+    public Sprite TutorialCharger;
+    public Sprite TutorialCannon;
+    public Sprite TutorialControlPanel;
+    public ShieldSprite shieldSprite;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -36,6 +42,13 @@ public class World : Camera2D
         shield = GetNode<Area2D>("Shield");
         shield.Connect("body_entered", this, "_on_Shield_body_entered");
 
+        TutorialFabricator = GetNode<Sprite>("TutorialFabricator");
+        TutorialCharger = GetNode<Sprite>("TutorialCharger");
+        TutorialCannon = GetNode<Sprite>("TutorialCannon");
+        TutorialControlPanel = GetNode<Sprite>("TutorialControlPanel");
+        shieldSprite = GetNode<ShieldSprite>("ShieldSprite");
+
+
         
         paths[0] = GetNode<WaveSpawner>("Path1");
         paths[1] = GetNode<WaveSpawner>("Path2");
@@ -43,7 +56,13 @@ public class World : Camera2D
 
         global.startTime = DateTime.Now;
 
-        enemySpawnTimer.Start();
+        if (global.tutorial){
+            TutorialFabricator.Show();
+        }else{
+            enemySpawnTimer.Start();
+        }
+
+        
 
 
     }
@@ -66,12 +85,16 @@ public class World : Camera2D
             paths[i % paths.Length].numEnemies += wave;
         }
 
-        enemySpawnTimer.WaitTime = 30 + wave*3;
+        enemySpawnTimer.WaitTime = 30 + wave*4;
         
     }
 
     public void _on_EnemySpawnTimer_timeout(){
         wave++;
+        // every 5 waves increase global.enemyhealth
+        if (wave % 5 == 0){
+            global.enemyHealth++;
+        }
         startWave();
     }
 
@@ -90,5 +113,6 @@ public class World : Camera2D
             ((body as KinematicBody2D).GetParent() as Enemy).hit(100);
             global.kills--;
             global.removeHealth(10);
+            shieldSprite.hit();
     }
 }

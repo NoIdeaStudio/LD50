@@ -28,7 +28,7 @@ public class ControlUpgradeMenu : Node2D
     }
 
     public void _on_SpeedUpgradeButton_pressed(){
-        if (global.Iron >= upgrades * costMult){
+        if (global.Iron >= upgrades * costMult && !global.tutorial){
             global.removeIron(upgrades*costMult);
         }else{
             cantAffordSound.Play();
@@ -47,7 +47,7 @@ public class ControlUpgradeMenu : Node2D
     }
 
     public void _on_InventoryUpgradeButton_pressed(){
-        if (global.Iron >= upgrades * costMult){
+        if (global.Iron >= upgrades * costMult && !global.tutorial){
             global.removeIron(upgrades*costMult);
         }else{
             cantAffordSound.Play();

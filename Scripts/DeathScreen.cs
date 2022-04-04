@@ -59,6 +59,6 @@ public class DeathScreen : Node2D
 
     private void _on_GiveUpButton_pressed()
     {
-        GetTree().ChangeScene("res://Scenes/MainMenu.tscn");
+        GetTree().Quit();
     }
 }

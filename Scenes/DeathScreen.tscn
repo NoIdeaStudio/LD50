@@ -1,11 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/button_gray.png" type="Texture" id=2]
+[ext_resource path="res://Assets/button_gray_long.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/DeathScreen.cs" type="Script" id=3]
 
 [node name="DeathScreen" type="Node2D"]
 pause_mode = 2
+z_index = 10
+z_as_relative = false
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
@@ -65,18 +67,18 @@ margin_left = 125.0
 margin_top = 512.0
 margin_right = 165.0
 margin_bottom = 552.0
-rect_scale = Vector2( 4.48, 1 )
+rect_scale = Vector2( 3, 2.3 )
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label5" type="Label" parent="RetryButton"]
-margin_left = 4.91072
-margin_top = 7.0
-margin_right = 116.911
-margin_bottom = 24.0
-rect_scale = Vector2( 0.192227, 1.14467 )
+margin_left = 7.66667
+margin_top = 2.6087
+margin_right = 119.667
+margin_bottom = 19.6087
+rect_scale = Vector2( 0.432227, 1.14467 )
 theme = ExtResource( 1 )
 text = "retry ?"
 align = 1
@@ -89,18 +91,18 @@ margin_left = 664.0
 margin_top = 512.0
 margin_right = 704.0
 margin_bottom = 552.0
-rect_scale = Vector2( 4.48, 1 )
+rect_scale = Vector2( 3, 2.3 )
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label6" type="Label" parent="GiveUpButton"]
-margin_left = 5.35715
-margin_top = 6.0
-margin_right = 117.357
-margin_bottom = 23.0
-rect_scale = Vector2( 0.192227, 1.14467 )
+margin_left = 5.33334
+margin_top = 2.17392
+margin_right = 117.333
+margin_bottom = 19.1739
+rect_scale = Vector2( 0.458895, 1.14467 )
 theme = ExtResource( 1 )
 text = "give up"
 align = 1

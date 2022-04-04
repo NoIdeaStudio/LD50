@@ -73,5 +73,4 @@ InteractTexture = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
-frame = 3
 playing = true

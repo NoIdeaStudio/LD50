@@ -22,3 +22,6 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0

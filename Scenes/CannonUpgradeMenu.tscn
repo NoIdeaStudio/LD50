@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/turret_inv.png" type="Texture" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Assets/damage_symbol_1.png" type="Texture" id=13]
 [ext_resource path="res://Assets/CantAfford.sfxr" type="AudioStream" id=14]
 [ext_resource path="res://Assets/upgrade.sfxr" type="AudioStream" id=15]
+[ext_resource path="res://Assets/triple_shot_symbol.png" type="Texture" id=16]
+[ext_resource path="res://Assets/quint_shot_symbol (1).png" type="Texture" id=17]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -49,6 +51,8 @@ animations = [ {
 } ]
 
 [node name="CannonUpgradeMenu" type="Node2D"]
+z_index = 5
+z_as_relative = false
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -708,7 +712,7 @@ __meta__ = {
 
 [node name="Icon" type="Sprite" parent="TripleUpgradeButton"]
 position = Vector2( 16.6666, 15.9722 )
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 
 [node name="Sprite2" type="Sprite" parent="TripleUpgradeButton"]
 position = Vector2( 42.8344, 16.4456 )
@@ -753,7 +757,7 @@ __meta__ = {
 
 [node name="Icon" type="Sprite" parent="FiveUpgradeButton"]
 position = Vector2( 16.6666, 15.9722 )
-texture = ExtResource( 8 )
+texture = ExtResource( 17 )
 
 [node name="Sprite2" type="Sprite" parent="FiveUpgradeButton"]
 position = Vector2( 42.8344, 16.4456 )

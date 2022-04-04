@@ -40,7 +40,7 @@ public class WaveSpawner : Path2D
         var enemy = (Enemy)enemyScene.Instance();
         enemy.GlobalPosition = GlobalPosition;
         enemy.speed = speed;
-        enemy.health = health;
+        enemy.health = global.enemyHealth;
         AddChild(enemy);
         enemy.setAnimation(animation);
         numEnemies--;

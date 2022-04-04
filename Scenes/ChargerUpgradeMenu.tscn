@@ -44,13 +44,15 @@ animations = [ {
 } ]
 
 [node name="ChargerUpgradeMenu" type="Node2D"]
+z_index = 5
+z_as_relative = false
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 500, 250 )
 scale = Vector2( 7.5, 7.5 )
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]

@@ -41,6 +41,10 @@ public class Charger : Area2D
         if (body.GetType() == typeof(Player))
         {
             menu.show();
+            if (global.tutorial && ((World)GetParent()).TutorialCharger.Visible == true){
+                ((World)GetParent()).TutorialCharger.Hide();
+                ((World)GetParent()).TutorialCannon.Show();
+            }
         }
     }
 

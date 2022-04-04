@@ -4,10 +4,14 @@ using System;
 public class EnergyPlus : Sprite
 {
     Timer timer;
+    AudioStreamPlayer audio;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        audio = GetNode<AudioStreamPlayer>("Audio");
+        audio.Play();
+
         timer = GetNode<Timer>("Timer");
         timer.Connect("timeout", this, "_on_Timer_timeout");
     }

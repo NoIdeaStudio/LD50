@@ -94,6 +94,13 @@ public class Cannon : StaticBody2D
         if (body.GetType() == typeof(Player))
         {
             menu.show();
+            if (global.tutorial && ((World)GetParent()).TutorialCannon.Visible == true){
+                ((World)GetParent()).TutorialCannon.Hide();
+                ((World)GetParent()).TutorialControlPanel.Show();
+                ((World)GetParent()).wave = 1;
+                ((World)GetParent()).startWave();
+                ((World)GetParent()).enemySpawnTimer.Start();
+            }
         }
     }
 

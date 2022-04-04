@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SpaceInvadersDingMusic.mp3-ad8e47232d9de1e5fe5ac4ca39f69aff.mp3str"
+
+[deps]
+
+source_file="res://Assets/SpaceInvadersDingMusic.mp3"
+dest_files=[ "res://.import/SpaceInvadersDingMusic.mp3-ad8e47232d9de1e5fe5ac4ca39f69aff.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

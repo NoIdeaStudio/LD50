@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scenes/Cannon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://Scenes/ControlUpgradeMenu.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Background.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/WaveSpawner.cs" type="Script" id=16]
+[ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=17]
+[ext_resource path="res://Assets/SpeechBubble.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/ShieldSprite.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -93,16 +96,16 @@ scale = Vector2( 5.56688, 3.8125 )
 texture = ExtResource( 8 )
 
 [node name="ControlPanel" parent="." instance=ExtResource( 6 )]
-position = Vector2( 495, 510 )
+position = Vector2( 524, 509 )
 
 [node name="Fabricator" parent="." instance=ExtResource( 4 )]
-position = Vector2( 703, 511 )
+position = Vector2( 740, 506 )
 
 [node name="Charger" parent="." instance=ExtResource( 3 )]
 position = Vector2( 301, 510 )
 
 [node name="Cannon" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 502 )
+position = Vector2( 61, 502 )
 scale = Vector2( 3.36172, 3.36172 )
 flipped = true
 
@@ -268,7 +271,7 @@ position = Vector2( 296.5, 296.5 )
 scale = Vector2( 5.63281, 5.63281 )
 z_index = -7
 frames = SubResource( 15 )
-frame = 5
+frame = 6
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
@@ -276,5 +279,114 @@ position = Vector2( 736, 302 )
 scale = Vector2( 5.63281, 5.63281 )
 z_index = -7
 frames = SubResource( 15 )
-frame = 5
+frame = 6
 playing = true
+
+[node name="TutorialFabricator" type="Sprite" parent="."]
+visible = false
+position = Vector2( -352, 213 )
+scale = Vector2( 5.44, 5.44 )
+z_index = 1
+texture = ExtResource( 18 )
+offset = Vector2( 219.301, 15.0735 )
+
+[node name="Label3" type="Label" parent="TutorialFabricator"]
+margin_left = 175.368
+margin_top = -25.3676
+margin_right = 399.368
+margin_bottom = 85.6324
+rect_scale = Vector2( 0.198528, 0.198528 )
+rect_pivot_offset = Vector2( 20, 52 )
+theme = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Come here and 
+press the 
+\"Fe\"/interact
+button to
+fabricate 
+iron !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialCharger" type="Sprite" parent="."]
+visible = false
+position = Vector2( -721, 212 )
+scale = Vector2( 5.44, 5.44 )
+z_index = 1
+texture = ExtResource( 18 )
+offset = Vector2( 219.301, 15.0735 )
+
+[node name="Label3" type="Label" parent="TutorialCharger"]
+margin_left = 174.448
+margin_top = -25.9191
+margin_right = 398.448
+margin_bottom = 85.0809
+rect_scale = Vector2( 0.183822, 0.183822 )
+rect_pivot_offset = Vector2( 20, 52 )
+theme = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You can
+upgrade every
+machine with
+iron by
+pressing the
+upgrade button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialCannon" type="Sprite" parent="."]
+visible = false
+position = Vector2( -955, 201 )
+scale = Vector2( 5.44, 5.44 )
+z_index = 1
+texture = ExtResource( 18 )
+offset = Vector2( 219.301, 15.0735 )
+
+[node name="Label3" type="Label" parent="TutorialCannon"]
+margin_left = 175.551
+margin_top = -25.7353
+margin_right = 383.551
+margin_bottom = 85.2647
+rect_scale = Vector2( 0.198528, 0.198528 )
+rect_pivot_offset = Vector2( 20, 52 )
+theme = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Cannons can
+be recharged
+with Energy
+and upgraded
+with iron !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialControlPanel" type="Sprite" parent="."]
+visible = false
+position = Vector2( -508, 226 )
+scale = Vector2( 5.44, 5.44 )
+z_index = 1
+texture = ExtResource( 18 )
+offset = Vector2( 219.301, 15.0735 )
+
+[node name="Label3" type="Label" parent="TutorialControlPanel"]
+margin_left = 175.551
+margin_top = -25.7353
+margin_right = 383.551
+margin_bottom = 85.2647
+rect_scale = Vector2( 0.198528, 0.198528 )
+rect_pivot_offset = Vector2( 20, 52 )
+theme = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Oh look an
+Enemy !
+Go to the
+control panel
+to activate
+the cannons !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShieldSprite" parent="." instance=ExtResource( 19 )]

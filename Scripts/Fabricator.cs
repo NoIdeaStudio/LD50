@@ -42,6 +42,10 @@ public class Fabricator : Area2D
         if (body.GetType() == typeof(Player))
         {
             menu.show();
+            if (global.tutorial && ((World)GetParent()).TutorialFabricator.Visible == true){
+                ((World)GetParent()).TutorialFabricator.Hide();
+                ((World)GetParent()).TutorialCharger.Show();
+            }
         }
     }
 
