@@ -37,6 +37,7 @@ public class World : Camera2D
         enemyScene = GD.Load<PackedScene>("res://Scenes/Enemy.tscn");
 
         enemySpawnTimer = GetNode<Timer>("EnemySpawnTimer");
+        enemySpawnTimer.WaitTime = 60;
         enemySpawnTimer.Connect("timeout", this, "_on_EnemySpawnTimer_timeout");
 
         shield = GetNode<Area2D>("Shield");
@@ -80,8 +81,8 @@ public class World : Camera2D
     }
 
     public void startWave(){
-        enemySpawnTimer.WaitTime = 30 + wave*20;
         global.countdown = (int)enemySpawnTimer.WaitTime;
+        enemySpawnTimer.WaitTime = 30 + wave*20;
         for (int i = 0; i < wave; i++){
             paths[i % paths.Length].numEnemies += wave*2;
         }
