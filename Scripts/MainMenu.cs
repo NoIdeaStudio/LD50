@@ -32,7 +32,9 @@ public class MainMenu : Node2D
 
     private void _on_CreditsButton_pressed()
     {
-        GetTree().ChangeScene("res://Scenes/Credits.tscn");
+        PackedScene credits = (PackedScene)ResourceLoader.Load("res://Scenes/Credits.tscn");
+        Credits creditsScreen = (Credits)credits.Instance();
+        AddChild(creditsScreen);
     }
 
     private void _on_QuitGameButton_pressed()

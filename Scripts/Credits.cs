@@ -21,6 +21,6 @@ public class Credits : Node2D
 
     private void _on_BackButton_pressed()
     {
-        GetTree().ChangeScene("res://Scenes/MainMenu.tscn");
+        QueueFree();
     }
 }

@@ -85,7 +85,7 @@ public class World : Camera2D
             paths[i % paths.Length].numEnemies += wave;
         }
 
-        enemySpawnTimer.WaitTime = 30 + wave*4;
+        enemySpawnTimer.WaitTime = 30 + wave*5;
         
     }
 
