@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/turret_inv.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scripts/ControlUpgradeMenu.cs" type="Script" id=6]
 [ext_resource path="res://Assets/Material_symbol.png" type="Texture" id=7]
 [ext_resource path="res://Assets/button_gray.png" type="Texture" id=8]
+[ext_resource path="res://Assets/CantAfford.sfxr" type="AudioStream" id=9]
+[ext_resource path="res://Assets/upgrade.sfxr" type="AudioStream" id=10]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -49,7 +51,6 @@ script = ExtResource( 6 )
 position = Vector2( 500, 250 )
 scale = Vector2( 9.02, 7.5 )
 frames = SubResource( 8 )
-frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]
@@ -303,3 +304,9 @@ text = "upgrade: Inventory Size"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="UpgradeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="CantAffordSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )

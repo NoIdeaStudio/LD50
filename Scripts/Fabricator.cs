@@ -53,6 +53,7 @@ public class Fabricator : Area2D
             timer.Stop();
             anim.Play("Idle");
             GetParent().GetNode<FabricatorUpgradeMenu>("FabricatorUpgradeMenu").Hide();
+            GetParent().GetNode<Player>("Player").working = false;
         }
     }
 
@@ -60,6 +61,7 @@ public class Fabricator : Area2D
         menu.hide();
         timer.Start();
         anim.Play("Fabricate");
+        GetParent().GetNode<Player>("Player").working = true;
     }
 
     public void upgrade(){
@@ -84,6 +86,6 @@ public class Fabricator : Area2D
         if(speed > maxSpeed){
             speed = maxSpeed;
         }
-        timer.WaitTime = 1f / speed;
+        timer.WaitTime = 3f / speed;
     }
 }

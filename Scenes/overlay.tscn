@@ -48,6 +48,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="WaveLabel" type="Label" parent="."]
+margin_left = 135.0
+margin_top = 111.0
+margin_right = 218.0
+margin_bottom = 127.0
+theme = SubResource( 2 )
+text = "30"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 15, 16 )
 texture = ExtResource( 4 )
@@ -99,6 +110,18 @@ rect_scale = Vector2( 1, 1.36 )
 rect_pivot_offset = Vector2( 20, 52 )
 theme = ExtResource( 5 )
 text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="."]
+margin_top = 126.0
+margin_right = 40.0
+margin_bottom = 142.0
+rect_scale = Vector2( 1, 1.36 )
+rect_pivot_offset = Vector2( 20, 52 )
+theme = ExtResource( 5 )
+text = "Wave in:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

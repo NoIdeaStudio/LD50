@@ -35,12 +35,14 @@ public class ControlPanel : Area2D
             GetNode<InteractionMenu>("InteractionMenu").hide();
             global.shootMode = false;
             GetParent().GetNode<ControlUpgradeMenu>("ControlUpgradeMenu").Hide();
+            GetParent().GetNode<Player>("Player").working = false;
         }
     }
 
     public void interact(){
         GetNode<InteractionMenu>("InteractionMenu").hide();
         global.shootMode = true;
+        GetParent().GetNode<Player>("Player").working = true;
     }
 
     public void upgrade(){

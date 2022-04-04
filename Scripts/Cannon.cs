@@ -104,12 +104,14 @@ public class Cannon : StaticBody2D
             menu.hide();
             chargeTimer.Stop();
             GetParent().GetNode<CannonUpgradeMenu>(UpgradeMenu).Hide();
+            GetParent().GetNode<Player>("Player").working = false;
         }
     }
 
     public void interact(){
         menu.hide();
         chargeTimer.Start();
+        GetParent().GetNode<Player>("Player").working = true;
     }
 
     public void _on_ChargeTimer_timeout(){

@@ -7,7 +7,6 @@ public class World : Camera2D
     Timer enemySpawnTimer;
     Path2D currentPath;
     int enemyCount = 0;
-    Path2D[] paths;
     Random random;
     [Export] float decay = 0.8f;
     [Export] Vector2 maxOffset = new Vector2(100, 75);
@@ -19,6 +18,8 @@ public class World : Camera2D
     Area2D shield;
     Global global;
     public int wave = 1;
+    public int enemiesLeft = 0;
+    public WaveSpawner[] paths = new WaveSpawner[3];
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -34,12 +35,16 @@ public class World : Camera2D
         shield = GetNode<Area2D>("Shield");
         shield.Connect("body_entered", this, "_on_Shield_body_entered");
 
-        paths = new Path2D[3];
-        paths[0] = GetNode<Path2D>("Path1");
-        paths[1] = GetNode<Path2D>("Path2");
-        paths[2] = GetNode<Path2D>("Path3");
+        
+        paths[0] = GetNode<WaveSpawner>("Path1");
+        paths[1] = GetNode<WaveSpawner>("Path2");
+        paths[2] = GetNode<WaveSpawner>("Path3");
 
         global.startTime = DateTime.Now;
+
+        enemySpawnTimer.Start();
+
+        startWave();
 
     }
 
@@ -56,29 +61,18 @@ public class World : Camera2D
     }
 
     public void startWave(){
-        int numWaves = wave;
-        int numEnemies = numWaves * 5;
-
-        for (int i = 0; i < numWaves; i++){
-            CreateWave(numEnemies, i);
+        global.countdown = (int)enemySpawnTimer.WaitTime;
+        for (int i = 0; i < wave; i++){
+            paths[i % paths.Length].numEnemies += wave;
         }
-    }
 
-    public void CreateWave(int count, int path){
-        // random path from paths
-        currentPath = paths[path % paths.Length];
-        enemySpawnTimer.Start();
-        enemyCount = count;
+        enemySpawnTimer.WaitTime = 30 + wave*3;
+        
     }
 
     public void _on_EnemySpawnTimer_timeout(){
-        enemyCount--;
-        if (enemyCount <= 0){
-            enemySpawnTimer.Stop();
-            return;
-        }
-        var enemy = enemyScene.Instance() as Enemy;
-        currentPath.AddChild(enemy);
+        wave++;
+        startWave();
     }
 
     public void shake(){
@@ -94,6 +88,7 @@ public class World : Camera2D
             GD.Print("hit");
             addTrauma(0.3f);
             ((body as KinematicBody2D).GetParent() as Enemy).hit(100);
+            global.kills--;
             global.removeHealth(10);
     }
 }

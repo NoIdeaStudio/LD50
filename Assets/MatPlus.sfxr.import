@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/MatPlus.sfxr-d16f3b3a699b4cf0fe21347729069bfe.sample"
+
+[deps]
+
+source_file="res://Assets/MatPlus.sfxr"
+dest_files=[ "res://.import/MatPlus.sfxr-d16f3b3a699b4cf0fe21347729069bfe.sample" ]
+
+[params]
+
+loop=false

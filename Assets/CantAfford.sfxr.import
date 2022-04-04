@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/CantAfford.sfxr-0d4ed9f198ae14a995eddd3e50f9914a.sample"
+
+[deps]
+
+source_file="res://Assets/CantAfford.sfxr"
+dest_files=[ "res://.import/CantAfford.sfxr-0d4ed9f198ae14a995eddd3e50f9914a.sample" ]
+
+[params]
+
+loop=false

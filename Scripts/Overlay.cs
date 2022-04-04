@@ -32,4 +32,9 @@ public class Overlay : Node2D
         setEnergy(global.Energy);
         setHealth(global.health);
     }
+
+    public void setWaveTime(int time)
+    {
+        GetNode<Label>("WaveLabel").Text = time.ToString();
+    }
 }

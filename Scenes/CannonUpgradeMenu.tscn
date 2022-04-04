@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/turret_inv.png" type="Texture" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Assets/Material_symbol.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Arrow.png" type="Texture" id=11]
 [ext_resource path="res://Assets/button_gray.png" type="Texture" id=12]
+[ext_resource path="res://Assets/damage_symbol_1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/CantAfford.sfxr" type="AudioStream" id=14]
+[ext_resource path="res://Assets/upgrade.sfxr" type="AudioStream" id=15]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -145,7 +148,7 @@ __meta__ = {
 
 [node name="Icon" type="Sprite" parent="DamageUpgradeButton"]
 position = Vector2( 16.6666, 15.9722 )
-texture = ExtResource( 8 )
+texture = ExtResource( 13 )
 
 [node name="Sprite2" type="Sprite" parent="DamageUpgradeButton"]
 position = Vector2( 134.501, 16.4456 )
@@ -730,7 +733,7 @@ margin_right = 98.3333
 margin_bottom = 31.9722
 rect_scale = Vector2( 0.444442, 0.444442 )
 theme = ExtResource( 1 )
-text = "50"
+text = "25"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -775,7 +778,7 @@ margin_right = 98.1121
 margin_bottom = 31.7512
 rect_scale = Vector2( 0.444442, 0.444442 )
 theme = ExtResource( 1 )
-text = "100"
+text = "50"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -784,3 +787,9 @@ __meta__ = {
 position = Vector2( 715, 294 )
 rotation = -3.14159
 texture = ExtResource( 11 )
+
+[node name="UpgradeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="CantAffordSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )

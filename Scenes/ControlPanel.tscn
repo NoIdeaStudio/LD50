@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/ControlPanel.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/InteractionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Controler.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Arrow_neon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/turret_control_symbol.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 43.5, 19.5 )
@@ -61,14 +62,16 @@ scale = Vector2( 3, 3 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.5, 1.5 )
+position = Vector2( 1.19209e-07, 0.333333 )
+scale = Vector2( 0.426667, 1 )
 shape = SubResource( 1 )
 
 [node name="InteractionMenu" parent="." instance=ExtResource( 2 )]
 visible = false
 UpgradeTexture = ExtResource( 4 )
+InteractTexture = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
-frame = 2
+frame = 3
 playing = true

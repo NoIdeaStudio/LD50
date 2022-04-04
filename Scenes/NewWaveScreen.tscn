@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/NewWaveScreen.cs" type="Script" id=2]
+
+[node name="NewWaveScreen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 121.0
+margin_top = 276.0
+margin_right = 265.0
+margin_bottom = 293.0
+rect_scale = Vector2( 3.8515, 3.8515 )
+theme = ExtResource( 1 )
+text = "Wave: "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveLabel" type="Label" parent="."]
+margin_left = 514.0
+margin_top = 282.0
+margin_right = 658.0
+margin_bottom = 299.0
+rect_scale = Vector2( 3.8515, 3.8515 )
+theme = ExtResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}

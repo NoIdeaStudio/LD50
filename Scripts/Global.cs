@@ -18,11 +18,24 @@ public class Global : Node
     public Overlay overlay;
     public bool shootMode = false;
     public PackedScene deathScreen;
+    public PackedScene newWaveScreen;
+    public int enemiesLeft = 0;
+    public int wave = 1;
+
+    Timer waveTimer;
+    public int countdown = 30;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         deathScreen = ResourceLoader.Load("res://Scenes/DeathScreen.tscn") as PackedScene;
+        newWaveScreen = ResourceLoader.Load("res://Scenes/NewWaveScreen.tscn") as PackedScene;
+
+        waveTimer = new Timer();
+        waveTimer.WaitTime = 1;
+        waveTimer.Connect("timeout", this, "waveCountdown");
+        AddChild(waveTimer);
+        waveTimer.Start();
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -93,5 +106,14 @@ public class Global : Node
         shootMode = false;
 
         updateOverlay();
+    }
+
+    public void waveCountdown(){
+        countdown--;
+        overlay.setWaveTime(countdown);
+    }
+
+    public void setWave(){
+        
     }
 }

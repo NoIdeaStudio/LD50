@@ -52,6 +52,7 @@ public class Charger : Area2D
             timer.Stop();
             GetParent().GetNode<ChargerUpgradeMenu>("ChargerUpgradeMenu").Hide();
             anim.Play("Idle");
+            GetParent().GetNode<Player>("Player").working = false;
         }
     }
 
@@ -59,6 +60,7 @@ public class Charger : Area2D
         menu.hide();
         timer.Start();
         anim.Play("Charging");
+        GetParent().GetNode<Player>("Player").working = true;
     }
 
     public void upgrade(){
@@ -79,6 +81,6 @@ public class Charger : Area2D
 
     public void upgradeSpeed(){
         speed ++;
-        timer.WaitTime = 1f / speed;
+        timer.WaitTime = 3f / speed;
     }
 }

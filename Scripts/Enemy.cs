@@ -18,7 +18,7 @@ public class Enemy : PathFollow2D
         global = GetNode<Global>("/root/Global");
 
         velocity = Vector2.Zero;
-        sprite = GetNode<AnimatedSprite>("Sprite");
+        sprite = GetNode<AnimatedSprite>("AnimatedSprite");
         
     }
 
@@ -38,7 +38,12 @@ public class Enemy : PathFollow2D
             GetParent().AddChild(audio);
             audio.Play();
             global.kills++;
+            global.enemiesLeft--;
             QueueFree();
         }
+    }
+
+    public void setAnimation(String animation){
+        sprite.Play(animation);
     }
 }

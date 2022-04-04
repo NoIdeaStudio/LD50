@@ -22,6 +22,8 @@ public class CannonUpgradeMenu : Node2D
     public int upgrades = 1;
     public int costMult = 5;
     Global global;
+    AudioStreamPlayer upgradeSound;
+    AudioStreamPlayer cantAffordSound;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -35,6 +37,8 @@ public class CannonUpgradeMenu : Node2D
         MaxChargeUpgradeButton = GetNode<TextureButton>("MaxChargeUpgradeButton");
         TripleUpgradeButton = GetNode<TextureButton>("TripleUpgradeButton");
         FiveUpgradeButton = GetNode<TextureButton>("FiveUpgradeButton");
+        upgradeSound = GetNode<AudioStreamPlayer>("UpgradeSound");
+        cantAffordSound = GetNode<AudioStreamPlayer>("CantAffordSound");
 
         DamageUpgradeButton.Connect("pressed", this, "_on_DamageUpgradeButton_pressed");
         VelocityUpgradeButton.Connect("pressed", this, "_on_VelocityUpgradeButton_pressed");
@@ -56,6 +60,7 @@ public class CannonUpgradeMenu : Node2D
         if (global.Iron >= upgrades * costMult){
             global.removeIron(upgrades*costMult);
         }else{
+            cantAffordSound.Play();
             return;
         }
         CurrentCannon.UpgradeDamage();
@@ -63,6 +68,7 @@ public class CannonUpgradeMenu : Node2D
         currentDamage++;
         upgrades ++;
         global.upgrades++;
+        upgradeSound.Play();
         updatePrices();
         GetNode<ColorRect>("DamageUpgradeButton/Sprite/" + currentDamage.ToString()).Visible = true;
         if (currentDamage >= 5){
@@ -76,12 +82,14 @@ public class CannonUpgradeMenu : Node2D
         if (global.Iron >= upgrades * costMult){
             global.removeIron(upgrades*costMult);
         }else{
+            cantAffordSound.Play();
             return;
         }
         CurrentCannon.UpgradeVelocity();
         currentVelocity++;
         upgrades ++;
         global.upgrades++;
+        upgradeSound.Play();
         updatePrices();
         GetNode<ColorRect>("VelocityUpgradeButton/Sprite/" + currentVelocity.ToString()).Visible = true;
 
@@ -97,12 +105,14 @@ public class CannonUpgradeMenu : Node2D
         if (global.Iron >= upgrades * costMult){
             global.removeIron(upgrades*costMult);
         }else{
+            cantAffordSound.Play();
             return;
         }
         CurrentCannon.UpgradePiercing();
         currentPiercing++;
         upgrades ++;
         global.upgrades++;
+        upgradeSound.Play();
         updatePrices();
         GetNode<ColorRect>("PiercingUpgradeButton/Sprite/" + currentPiercing.ToString()).Visible = true;
 
@@ -118,12 +128,14 @@ public class CannonUpgradeMenu : Node2D
         if (global.Iron >= upgrades * costMult){
             global.removeIron(upgrades*costMult);
         }else{
+            cantAffordSound.Play();
             return;
         }
         CurrentCannon.UpgradeCharging();
         currentCharging++;
         upgrades ++;
         global.upgrades++;
+        upgradeSound.Play();
         updatePrices();
         GetNode<ColorRect>("ChargingUpgradeButton/Sprite/" + currentCharging.ToString()).Visible = true;
 
@@ -139,6 +151,7 @@ public class CannonUpgradeMenu : Node2D
         if (global.Iron >= upgrades * costMult){
             global.removeIron(upgrades*costMult);
         }else{
+            cantAffordSound.Play();
             return;
         }
         CurrentCannon.UpgradeMaxCharge();
@@ -146,6 +159,7 @@ public class CannonUpgradeMenu : Node2D
         currentMaxCharge++;
         upgrades ++;
         global.upgrades++;
+        upgradeSound.Play();
         updatePrices();
         GetNode<ColorRect>("MaxChargeUpgradeButton/Sprite/" + currentMaxCharge.ToString()).Visible = true;
         if(currentMaxCharge >= 5)
@@ -164,15 +178,31 @@ public class CannonUpgradeMenu : Node2D
 
     private void _on_TripleUpgradeButton_pressed()
     {
+        if (global.Iron >= 25){
+            global.removeIron(25);
+        }else{
+            cantAffordSound.Play();
+            return;
+        }
         CurrentCannon.UpgradeTriple();
         TripleUpgradeButton.Disabled = true;
         FiveUpgradeButton.Disabled = false;
+        global.upgrades++;
+        upgradeSound.Play();
     }
 
     private void _on_FiveUpgradeButton_pressed()
     {
+        if (global.Iron >= 50){
+            global.removeIron(50);
+        }else{
+            cantAffordSound.Play();
+            return;
+        }
         CurrentCannon.UpgradeFive();
         FiveUpgradeButton.Disabled = true;
+        global.upgrades++;
+        upgradeSound.Play();
     }
 
 }

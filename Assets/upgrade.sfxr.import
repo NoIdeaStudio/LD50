@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/upgrade.sfxr-58d397b3d7c3ba58f12f6327f08ae5c0.sample"
+
+[deps]
+
+source_file="res://Assets/upgrade.sfxr"
+dest_files=[ "res://.import/upgrade.sfxr-58d397b3d7c3ba58f12f6327f08ae5c0.sample" ]
+
+[params]
+
+loop=false
