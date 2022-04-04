@@ -11,11 +11,13 @@ public class Enemy : PathFollow2D
     public Vector2 velocity;
     public AnimatedSprite sprite;
     Global global;
+    PackedScene diePart;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         global = GetNode<Global>("/root/Global");
+        diePart = GD.Load<PackedScene>("res://Scenes/ExplosionEnemy.tscn");
 
         velocity = Vector2.Zero;
         sprite = GetNode<AnimatedSprite>("AnimatedSprite");
@@ -36,6 +38,9 @@ public class Enemy : PathFollow2D
             AudioStreamPlayer2D audio = new AudioStreamPlayer2D();
             audio.Stream = ResourceLoader.Load("res://Assets/enemy_death.sfxr") as AudioStream;
             GetParent().AddChild(audio);
+            ExplosionEnemy explosion = (ExplosionEnemy)diePart.Instance();
+            explosion.GlobalPosition = GlobalPosition;
+            GetParent().AddChild(explosion);
             audio.Play();
             global.kills++;
             global.enemiesLeft--;

@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/InteractionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Controler.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Arrow_neon.png" type="Texture" id=4]
-[ext_resource path="res://Assets/turret_control_symbol.png" type="Texture" id=5]
+[ext_resource path="res://Assets/turret_control_symbol_1.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 43.5, 19.5 )
@@ -73,4 +73,5 @@ InteractTexture = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
+frame = 9
 playing = true
