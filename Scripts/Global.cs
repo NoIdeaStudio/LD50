@@ -3,11 +3,11 @@ using System;
 
 public class Global : Node
 {
-    public int Iron = 2000;
-    public int Energy = 2000;
+    public int Iron = 0;
+    public int Energy = 0;
     public int maxIron = 10;
     public int maxEnergy = 10;
-    public int health = 1000;
+    public int health = 100;
 
     public int kills = 0;
     public int upgrades = 0;
@@ -24,7 +24,7 @@ public class Global : Node
     public int enemyHealth = 1;
 
     Timer waveTimer;
-    public int countdown = 30;
+    public int countdown = 60;
     public bool tutorial = true;
 
     // Called when the node enters the scene tree for the first time.

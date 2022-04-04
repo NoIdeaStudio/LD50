@@ -36,7 +36,7 @@ public class FabricatorUpgradeMenu : Node2D
 
     private void _on_SpeedUpgradeButton_pressed()
     {
-        if (global.Iron >= currentSpeed * costMult){
+        if (global.Iron >= currentSpeed * costMult && !global.tutorial){
             global.removeIron(currentSpeed*costMult);
         }else{
             cantAffordSound.Play();

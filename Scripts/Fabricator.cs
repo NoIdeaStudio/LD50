@@ -23,6 +23,7 @@ public class Fabricator : Area2D
 
         menu = GetNode<InteractionMenu>("InteractionMenu");
         timer = GetNode<Timer>("Timer");
+        timer.WaitTime = 2;
         timer.Connect("timeout", this, "_on_Timer_timeout");
         anim = GetNode<AnimatedSprite>("AnimatedSprite");
 
@@ -90,6 +91,6 @@ public class Fabricator : Area2D
         if(speed > maxSpeed){
             speed = maxSpeed;
         }
-        timer.WaitTime = 3f / speed;
+        timer.WaitTime = 2f / speed;
     }
 }

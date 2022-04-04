@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Cannon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Assets/PixelFontTheme.tres" type="Theme" id=17]
 [ext_resource path="res://Assets/SpeechBubble.png" type="Texture" id=18]
 [ext_resource path="res://Scenes/ShieldSprite.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Assets/BattleSong.wav" type="AudioStream" id=20]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -271,7 +272,7 @@ position = Vector2( 296.5, 296.5 )
 scale = Vector2( 5.63281, 5.63281 )
 z_index = -7
 frames = SubResource( 15 )
-frame = 7
+frame = 5
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
@@ -279,7 +280,7 @@ position = Vector2( 736, 302 )
 scale = Vector2( 5.63281, 5.63281 )
 z_index = -7
 frames = SubResource( 15 )
-frame = 7
+frame = 5
 playing = true
 
 [node name="TutorialFabricator" type="Sprite" parent="."]
@@ -390,3 +391,7 @@ __meta__ = {
 }
 
 [node name="ShieldSprite" parent="." instance=ExtResource( 19 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+autoplay = true

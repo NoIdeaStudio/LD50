@@ -58,7 +58,6 @@ position = Vector2( 296.5, 296.5 )
 scale = Vector2( 5.63281, 5.63281 )
 z_index = -7
 frames = SubResource( 15 )
-frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
@@ -66,7 +65,6 @@ position = Vector2( 736, 302 )
 scale = Vector2( 5.63281, 5.63281 )
 z_index = -7
 frames = SubResource( 15 )
-frame = 4
 playing = true
 
 [node name="Label" type="Label" parent="."]

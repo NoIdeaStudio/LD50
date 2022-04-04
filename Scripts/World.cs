@@ -80,12 +80,13 @@ public class World : Camera2D
     }
 
     public void startWave(){
+        enemySpawnTimer.WaitTime = 30 + wave*20;
         global.countdown = (int)enemySpawnTimer.WaitTime;
         for (int i = 0; i < wave; i++){
-            paths[i % paths.Length].numEnemies += wave;
+            paths[i % paths.Length].numEnemies += wave*2;
         }
 
-        enemySpawnTimer.WaitTime = 30 + wave*5;
+        
         
     }
 

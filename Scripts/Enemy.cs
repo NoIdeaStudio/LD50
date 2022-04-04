@@ -12,12 +12,14 @@ public class Enemy : PathFollow2D
     public AnimatedSprite sprite;
     Global global;
     PackedScene diePart;
+    PackedScene shieldPart;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         global = GetNode<Global>("/root/Global");
         diePart = GD.Load<PackedScene>("res://Scenes/ExplosionEnemy.tscn");
+        shieldPart = GD.Load<PackedScene>("res://Scenes/ShieldEnemy.tscn");
 
         velocity = Vector2.Zero;
         sprite = GetNode<AnimatedSprite>("AnimatedSprite");
@@ -45,6 +47,10 @@ public class Enemy : PathFollow2D
             global.kills++;
             global.enemiesLeft--;
             QueueFree();
+        }else{
+            ExplosionEnemy shield = (ExplosionEnemy)shieldPart.Instance();
+            shield.GlobalPosition = GlobalPosition;
+            GetParent().AddChild(shield);
         }
     }
 

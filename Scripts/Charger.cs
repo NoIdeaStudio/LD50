@@ -23,6 +23,7 @@ public class Charger : Area2D
         menu = GetNode<InteractionMenu>("InteractionMenu");
         global = GetNode<Global>("/root/Global");
         timer = GetNode<Timer>("Timer");
+        timer.WaitTime = 2;
         anim = GetNode<AnimatedSprite>("AnimatedSprite");
 
         timer.Connect("timeout", this, "_on_Timer_timeout");
@@ -85,6 +86,6 @@ public class Charger : Area2D
 
     public void upgradeSpeed(){
         speed ++;
-        timer.WaitTime = 3f / speed;
+        timer.WaitTime = 2f / speed;
     }
 }
